@@ -128,5 +128,11 @@ public class ScrollView: UIScrollView {
         centerInSuperview(size: size, offset: offset)
         return self
     }
+    
+    @discardableResult
+    public func background(color: UIColor) -> ScrollView {
+        self.backgroundColor = color
+        return self
+    }
 }
 
