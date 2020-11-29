@@ -1,24 +1,24 @@
-# Stax
+# 🥞 Stax
 
 **Stax** is a lightweight library that leverages Auto Layout, UIStackViews and UIScrollViews to build out your UI programmatically with just a few lines of code.
 
-## Installation
-### Swift Package Manager
+## 💻 Installation
+### 📦 Swift Package Manager
 Using <a href="https://swift.org/package-manager/" rel="nofollow">Swift Package Manager</a>, add it as a Swift Package in Xcode 11.0 or later, `select File > Swift Packages > Add Package Dependency...` and add the repository URL:
 ```
 https://github.com/rebeloper/Stax.git
 ```
-### Manual Installation
+### ✊ Manual Installation
 Download and include the `Stax` folder and files in your codebase.
 
-### Requirements
+### 📲 Requirements
 - iOS 11
 - Swift 5
 
-## Concept
+## 👑 Concept
 `Stax` uses the idea of laying out your views entirely with **Stacks**. Under the hood it uses `UIStackView`s to create horizontal or vertical stacks. You may set any of these **Stacks** to be scrollable. **Stacks** are nestable and follow a declarative writing style. As a bonus you may also center a view inside another one.
 
-## Features
+## 🧳 Features
 - [X] Pure Swift 5 sweetness.
 - [X] Everything you can do with Auto Layout, but shorter.
 - [X] Constraints are active by default.
@@ -31,8 +31,8 @@ Download and include the `Stax` folder and files in your codebase.
 - [X] No external dependencies.
 - [X] 100% Documented.
 
-## How To Use
-### Import
+## 🛠 How To Use
+### 👉 Import
 
 Import `Stax` into your `ViewController`
 
@@ -40,11 +40,11 @@ Import `Stax` into your `ViewController`
 import Stax
 ```
 
-### A work about how `UIStackViews` work and `size` setting with `Stax`
+### 📚 A word about how `UIStackViews` work and `size` setting with `Stax`
 
 `UIStackViews` are pull-in views: they take up the least amount of space from their parent view filling themselves with the least amount of space that their arranged subviews need. Thus it's crucial that all views added to the **Stack** have their own size. Some views do have an intrisic size (a size set automatically upon initialization): `UIButton`, `UILabel`. But not all views have an intrinsic size: `UIView`, `UIImageView`. So here are the ways we can set size in `Stax`
 
-### Size
+### 📏 Size
 
 ```
 lazy var view0 = UIView(backgroundColor: .systemRed).width(self.view.frame.size.width)
@@ -73,7 +73,7 @@ let view12 = UIView(backgroundColor: .systemGray4).height(50)
 let view13 = UIView(backgroundColor: .systemGray3).height(50)
 ```
 
-### Spacer
+### 👈👉 Spacer
 
 Since `UIStackView` is a pull-in view we will need a push-out view in order to use them more efficiently. This is where `Spacer` comes in. It is an empty `UIView` that can push views. Here's an example of a `Spacer` pushing `view2` to the top in this `VStack` layed out in the view controller's `view`. (Don't worry about understanding the stack or the layout. We'll talk about them soon enough.)
 
@@ -100,7 +100,7 @@ HStack(
 ).layout(in: view)
 ```
 
-### Background color
+### 🎨 Background color
 
 When you build out views with `Stax` you may not properly evaluate where the stack's views are layed out exactly. To make our lives easier we can just simply add background colors.
 
@@ -125,7 +125,7 @@ VStack(
 .background(color: .systemGreen)
 ```
 
-### Centering
+### 🍩 Centering
 
 The second most important part in laying out UI in `Stax` besides stacking is centering a view inside a parent view. Centering has to be done outside of the main stack. See the example view controller below.
 
@@ -145,7 +145,7 @@ HStack(view5, view6).center(inside: view, offset: CGPoint.right(50))
 HStack(view5, view6).scrolls(.horizontal).center(inside: view, size: CGSize(width: 100, height: 100))
 ```
 
-### Stacks
+### 🍔 Stacks
 
 There are two type of Stacks in `Stax`: `VStack` and `HStack` (Vertical Stack and Horizontal Stack).
 The way we add a stack onto any view is laying it with `layout(in:)`. Usually this is done only once with the main Stack layed out in the view controller's view. You may also lay out with taking the safe area into acount.
@@ -178,7 +178,7 @@ VStack(
 ).layout(in: view)
 ```
 
-### Scrolling
+### 📜 Scrolling
 
 You can enable scrolling with one line.
 
@@ -204,7 +204,7 @@ HStack(
 ).scrolls(.horizontal).layout(in: view)
 ```
 
-### Spacing
+### 👉👈 Spacing
 
 Spacing between the stack elements is also simple.
 
@@ -218,7 +218,7 @@ VStack(view11, view12, view13).spacing()
 VStack(view11, view12, view13).spacing(25)
 ```
 
-### Padding
+### 🌅 Padding
 
 Padding can be added to any `Stack` or `ScrollView`.
 
@@ -262,7 +262,7 @@ VStack(
 )/*.scrolls()*/.padding(.bottom, 24)
 ```
 
-### Scrolling Options
+### ⚙️ Scrolling Options
 
 We can set basic options on the `ScrollView`:
 
@@ -280,7 +280,7 @@ HStack(view1, view2, view3).scrolls(.horizontal).showsScrollIndicator()
 HStack(view1, view2, view3).scrolls(.horizontal).bounces(false)
 ```
 
-### Auto-scrolling
+### 🦾 Auto-scrolling
 
 We can also automatically scroll to a specific view. You might want to delay the scroll by `0.05` when you are scrolling upon initializing the view controller. Default `delay` is `0`. Default `animated` is `true`. You must specifiy the `axis` of the scroll.
 
@@ -306,7 +306,7 @@ HStack(view5, view6)
     .scroll(.toLeft, delay: 3, animated: false)
 ```
 
-### Stack Options
+### ⚙️ Stack Options
 
 Stacks are configure for easy layout and it is not advised to chage thes options only when you know what you're doing.
 
@@ -319,7 +319,7 @@ VStack(
 .distribution(.fill) // optionally set stack distribution; default is: .fill
 ```
 
-### Access the main stack
+### 🤖 Access the main stack
 
 You might want to access the main stack later on in the lifecycle of the app. Till now we added our main stack in the `viewDidLoad()` but you may also declare it as a `lazy var`. So now you can acces it in the whoe view controller.
 
@@ -339,7 +339,7 @@ override func viewDidLoad() {
 }
 ```
 
-### Example
+### 📱 Example
 
 Here is an in depth example view controller detailing all of the features of `Stax`
 
@@ -404,14 +404,14 @@ class ViewController: UIViewController {
 }
 ```
 
-## Contact
+## ✍️ Contact
 
 <a href="http://rebeloper.com/">rebeloper.com</a> / 
 <a href="http://www.youtube.com/rebeloper/">YouTube</a> / 
 <a href="http://store.rebeloper.com/">Shop</a> / 
 <a href="http://rebeloper.com/mentoring">Mentoring</a>
 
-## License
+## 📃 License
 
 The MIT License (MIT)
 
