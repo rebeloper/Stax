@@ -197,7 +197,7 @@ public class ScrollView: UIScrollView {
     ///   - animated: animation of the scroll
     /// - Returns: scroll view
     @discardableResult
-    func scroll(to view: UIView, axis: NSLayoutConstraint.Axis, offset: CGFloat = 0, delay: Double = 0, animated: Bool = true) -> ScrollView {
+    public func scroll(to view: UIView, axis: NSLayoutConstraint.Axis, offset: CGFloat = 0, delay: Double = 0, animated: Bool = true) -> ScrollView {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) {
             if let origin = view.superview {
                 let childStartPoint = origin.convert(view.frame.origin, to: self)
