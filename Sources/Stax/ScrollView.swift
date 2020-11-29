@@ -187,5 +187,62 @@ public class ScrollView: UIScrollView {
         self.backgroundColor = color
         return self
     }
+    
+    /// Scrolls to a specified view on a specified axis
+    /// - Parameters:
+    ///   - view: the view to scroll to
+    ///   - axis: scroll view axis
+    ///   - offset: offset of the scroll
+    ///   - delay: delay of the scroll
+    ///   - animated: animation of the scroll
+    /// - Returns: scroll view
+    @discardableResult
+    func scroll(to view: UIView, axis: NSLayoutConstraint.Axis, offset: CGFloat = 0, delay: Double = 0, animated: Bool = true) -> ScrollView {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) {
+            if let origin = view.superview {
+                let childStartPoint = origin.convert(view.frame.origin, to: self)
+                switch axis {
+                case .horizontal:
+                    self.setContentOffset(CGPoint(x: childStartPoint.x - self.contentInset.left - offset, y: 0), animated: true)
+                case .vertical:
+                    self.setContentOffset(CGPoint(x: 0, y: childStartPoint.y - self.contentInset.top - offset), animated: true)
+                @unknown default:
+                    print("@unknown default")
+                }
+            }
+        }
+        return self
+    }
+    
+    /// Scrolls to a specified edge of the scroll view
+    /// - Parameters:
+    ///   - scrollToType: scroll to type
+    ///   - delay: delay of the scroll
+    ///   - animated: animation of the scroll
+    /// - Returns: scroll view
+    @discardableResult
+    public func scroll(_ scrollToType: ScrollToType, delay: Double = 0, animated: Bool = true) -> ScrollView {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) {
+            switch scrollToType {
+            case .toLeft:
+                let offset = CGPoint(x: -self.contentInset.left, y: 0)
+                self.setContentOffset(offset, animated: animated)
+            case .toRigh:
+                let offset = CGPoint(x: self.contentSize.width - self.bounds.size.width + self.contentInset.right, y: 0)
+                if offset.x > 0 {
+                    self.setContentOffset(offset, animated: animated)
+                }
+            case .toTop:
+                let offset = CGPoint(x: 0, y: -self.contentInset.top)
+                self.setContentOffset(offset, animated: animated)
+            case .toBottom:
+                let offset = CGPoint(x: 0, y: self.contentSize.height - self.bounds.size.height + self.contentInset.bottom)
+                if offset.y > 0 {
+                    self.setContentOffset(offset, animated: animated)
+                }
+            }
+        }
+        return self
+    }
 }
 
