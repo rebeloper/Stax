@@ -80,7 +80,7 @@ public class ScrollView: UIScrollView {
     /// - Parameter constant: scroll view padding constant
     /// - Returns: scroll view
     @discardableResult
-    public func padding(by constant: CGFloat) -> ScrollView {
+    public func padding(by constant: CGFloat = 8) -> ScrollView {
         padding(UIEdgeInsets(top: constant, left: constant, bottom: constant, right: constant))
     }
     
@@ -90,7 +90,7 @@ public class ScrollView: UIScrollView {
     ///   - constant: scroll view padding constant
     /// - Returns: scroll view
     @discardableResult
-    public func padding(_ type: PaddingType, _ constant: CGFloat) -> ScrollView {
+    public func padding(_ type: PaddingType, _ constant: CGFloat = 8) -> ScrollView {
         switch type {
         case .leading:
             contentInset.left = constant

@@ -10,6 +10,42 @@ import UIKit
 @available(iOS 11.0, *)
 extension UIStackView {
     
+    /// Set the spacing between the stack view's arranged subviews
+    /// - Parameter constant: constant
+    /// - Returns: stack view
+    @discardableResult
+    public func spacing(_ constant: CGFloat = 8) -> UIStackView {
+        spacing = constant
+        return self
+    }
+    
+    /// Set the stack view axis
+    /// - Parameter axis: axis
+    /// - Returns: stack view
+    @discardableResult
+    public func axis(_ axis: NSLayoutConstraint.Axis) -> UIStackView {
+        self.axis = axis
+        return self
+    }
+    
+    /// Set the stack view alignment
+    /// - Parameter alignment: alignment
+    /// - Returns: stack view
+    @discardableResult
+    public func alignment(_ alignment: UIStackView.Alignment) -> UIStackView {
+        self.alignment = alignment
+        return self
+    }
+    
+    /// Set the stack view distribution
+    /// - Parameter distribution: distribution
+    /// - Returns: stack view
+    @discardableResult
+    public func distribution(_ distribution: UIStackView.Distribution) -> UIStackView {
+        self.distribution = distribution
+        return self
+    }
+    
     /// Set the padding of the stack view with an `UIEdgeInsets`
     /// - Parameter insets: insets
     /// - Returns: stack view
@@ -24,7 +60,7 @@ extension UIStackView {
     /// - Parameter constant: constant
     /// - Returns: stack view
     @discardableResult
-    public func padding(by constant: CGFloat) -> UIStackView {
+    public func padding(by constant: CGFloat = 8) -> UIStackView {
         padding(UIEdgeInsets(top: constant, left: constant, bottom: constant, right: constant))
     }
     
@@ -34,7 +70,7 @@ extension UIStackView {
     ///   - constant: stack view padding constant
     /// - Returns: stack view
     @discardableResult
-    public func padding(_ type: PaddingType, _ constant: CGFloat) -> UIStackView {
+    public func padding(_ type: PaddingType, _ constant: CGFloat = 8) -> UIStackView {
         isLayoutMarginsRelativeArrangement = true
         switch type {
         case .leading:
@@ -75,7 +111,7 @@ extension UIStackView {
     ///   - padding: padding
     /// - Returns: stack view
     @discardableResult
-    func layout(in view: UIView, withSafeArea: Bool = false, padding: UIEdgeInsets = .zero) -> UIStackView {
+    public func layout(in view: UIView, withSafeArea: Bool = false, padding: UIEdgeInsets = .zero) -> UIStackView {
         view.addSubview(self)
         if withSafeArea {
             self.fillSuperviewSafeAreaLayoutGuide(padding: padding)
@@ -83,16 +119,6 @@ extension UIStackView {
             self.fillSuperview(padding: padding)
         }
         return self
-    }
-    
-    /// Embeds the stack view into a scroll view with a default axis of `.vertical`
-    /// - Parameter axis: axis of the scroll view
-    /// - Returns: scroll view
-    @discardableResult
-    public func scrolls(_ axis: NSLayoutConstraint.Axis = .vertical) -> ScrollView {
-        let scrollView = ScrollView(self)
-        scrollView.axis(axis)
-        return scrollView
     }
     
     /// Sets the background color of the stack view
@@ -105,5 +131,15 @@ extension UIStackView {
         subView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         insertSubview(subView, at: 0)
         return self
+    }
+    
+    /// Embeds the stack view into a scroll view with a default axis of `.vertical`
+    /// - Parameter axis: axis of the scroll view
+    /// - Returns: scroll view
+    @discardableResult
+    public func scrolls(_ axis: NSLayoutConstraint.Axis = .vertical) -> ScrollView {
+        let scrollView = ScrollView(self)
+        scrollView.axis(axis)
+        return scrollView
     }
 }
