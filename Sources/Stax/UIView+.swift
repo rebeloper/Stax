@@ -10,6 +10,11 @@ import UIKit
 @available(iOS 11.0, *)
 extension UIView {
     
+    /// Creates a Stack with an axis
+    /// - Parameters:
+    ///   - axis: axis
+    ///   - views: arranged subviews
+    /// - Returns: stack view
     fileprivate func _stack(_ axis: NSLayoutConstraint.Axis, views: [UIView]) -> UIStackView {
         let stackView = UIStackView(arrangedSubviews: views)
         stackView.axis = axis
@@ -21,16 +26,25 @@ extension UIView {
         return stackView
     }
     
+    /// Creates a vertical stack view
+    /// - Parameter views: arranged subviews
+    /// - Returns: stack view
     @discardableResult
     public func vstack(_ views: [UIView]) -> UIStackView {
         return _stack(.vertical, views: views)
     }
     
+    /// Creates a horizontal stack view
+    /// - Parameter views: arranged subviews
+    /// - Returns: stack view
     @discardableResult
     public func hstack(_ views: [UIView]) -> UIStackView {
         return _stack(.horizontal, views: views)
     }
     
+    /// Sets the size of the view with a `CGSize`
+    /// - Parameter size: size
+    /// - Returns: view
     @discardableResult
     public func size<T: UIView>(_ size: CGSize) -> T {
         translatesAutoresizingMaskIntoConstraints = false
@@ -39,6 +53,11 @@ extension UIView {
         return self as! T
     }
     
+    /// Sets the size of the view with a width and height
+    /// - Parameters:
+    ///   - width: width
+    ///   - height: height
+    /// - Returns: view
     @discardableResult
     public func size<T: UIView>(width: CGFloat, height: CGFloat) -> T {
         translatesAutoresizingMaskIntoConstraints = false
@@ -47,6 +66,9 @@ extension UIView {
         return self as! T
     }
     
+    /// Set the height of a view
+    /// - Parameter height: height
+    /// - Returns: view
     @discardableResult
     public func height(_ height: CGFloat) -> UIView {
         translatesAutoresizingMaskIntoConstraints = false
@@ -54,6 +76,9 @@ extension UIView {
         return self
     }
     
+    /// Set the width of a view
+    /// - Parameter width: width
+    /// - Returns: view
     @discardableResult
     public func width(_ width: CGFloat) -> UIView {
         translatesAutoresizingMaskIntoConstraints = false
@@ -61,12 +86,18 @@ extension UIView {
         return self
     }
     
+    /// Sets the background color of the view
+    /// - Parameter color: color
+    /// - Returns: stack view
     @discardableResult
     public func backgroundColor(_ color: UIColor) -> UIView {
         self.backgroundColor = color
         return self
     }
     
+    /// Anchors a view with an array of anchors
+    /// - Parameter anchors: anchors
+    /// - Returns: constraints
     @discardableResult
     public func anchor(_ anchors: Anchor...) -> AnchoredConstraints {
         translatesAutoresizingMaskIntoConstraints = false
@@ -102,6 +133,15 @@ extension UIView {
         return anchoredConstraints
     }
     
+    /// Anchors a view with specific / optional anchors, padding and size
+    /// - Parameters:
+    ///   - top: top anchor
+    ///   - leading: leading anchor
+    ///   - bottom: bottom anchor
+    ///   - trailing: trailing abchor
+    ///   - padding: padding
+    ///   - size: size
+    /// - Returns: constraints
     @discardableResult
     public func anchor(top: NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, trailing: NSLayoutXAxisAnchor?, padding: UIEdgeInsets = .zero, size: CGSize = .zero) -> AnchoredConstraints {
         
@@ -137,6 +177,9 @@ extension UIView {
         return anchoredConstraints
     }
     
+    /// Fills the view to the constraints of its superview with padding
+    /// - Parameter padding: padding
+    /// - Returns: constraints
     @discardableResult
     public func fillSuperview(padding: UIEdgeInsets = .zero) -> AnchoredConstraints {
         translatesAutoresizingMaskIntoConstraints = false
@@ -151,6 +194,9 @@ extension UIView {
         return anchor(top: superviewTopAnchor, leading: superviewLeadingAnchor, bottom: superviewBottomAnchor, trailing: superviewTrailingAnchor, padding: padding)
     }
     
+    /// Fills the view to the constraints of its superviews safe area layout guide with padding
+    /// - Parameter padding: padding
+    /// - Returns: constraints
     @discardableResult
     public func fillSuperviewSafeAreaLayoutGuide(padding: UIEdgeInsets = .zero) -> AnchoredConstraints {
         let anchoredConstraints = AnchoredConstraints()
@@ -163,7 +209,13 @@ extension UIView {
         return anchor(top: superviewTopAnchor, leading: superviewLeadingAnchor, bottom: superviewBottomAnchor, trailing: superviewTrailingAnchor, padding: padding)
     }
     
-    public func centerInSuperview(size: CGSize = .zero, offset: CGPoint = .zero) {
+    /// Centers the view in its super view with size and offset
+    /// - Parameters:
+    ///   - size: size of view
+    ///   - offset: offset of view
+    /// - Returns: super view
+    @discardableResult
+    public func centerInSuperview(size: CGSize = .zero, offset: CGPoint = .zero) -> UIView {
         translatesAutoresizingMaskIntoConstraints = false
         if let superviewCenterXAnchor = superview?.centerXAnchor {
             centerXAnchor.constraint(equalTo: superviewCenterXAnchor, constant: offset.x).isActive = true
@@ -180,55 +232,23 @@ extension UIView {
         if size.height != 0 {
             heightAnchor.constraint(equalToConstant: size.height).isActive = true
         }
+        return superview!
     }
     
-    public func center(in superView: UIView, size: CGSize = .zero, offset: CGPoint = .zero) {
-        superView.addSubview(self)
-        centerInSuperview(size: size, offset: offset)
-    }
-    
-    public func centerXTo(_ anchor: NSLayoutXAxisAnchor) {
-        translatesAutoresizingMaskIntoConstraints = false
-        centerXAnchor.constraint(equalTo: anchor).isActive = true
-    }
-    
-    public func centerYTo(_ anchor: NSLayoutYAxisAnchor) {
-        translatesAutoresizingMaskIntoConstraints = false
-        centerYAnchor.constraint(equalTo: anchor).isActive = true
-    }
-    
-    public func centerXToSuperview() {
-        translatesAutoresizingMaskIntoConstraints = false
-        if let superviewCenterXAnchor = superview?.centerXAnchor {
-            centerXAnchor.constraint(equalTo: superviewCenterXAnchor).isActive = true
-        }
-    }
-    
-    public func centerYToSuperview() {
-        translatesAutoresizingMaskIntoConstraints = false
-        if let superviewCenterYAnchor = superview?.centerYAnchor {
-            centerYAnchor.constraint(equalTo: superviewCenterYAnchor).isActive = true
-        }
-    }
-    
+    /// Adds to super view and centers the view in its super view with size and offset
+    /// - Parameters:
+    ///   - view: view
+    ///   - size: size of the view
+    ///   - offset: offset of the view
+    /// - Returns: super view
     @discardableResult
-    public func constrainHeight(_ constant: CGFloat) -> AnchoredConstraints {
-        translatesAutoresizingMaskIntoConstraints = false
-        var anchoredConstraints = AnchoredConstraints()
-        anchoredConstraints.height = heightAnchor.constraint(equalToConstant: constant)
-        anchoredConstraints.height?.isActive = true
-        return anchoredConstraints
+    public func center(in view: UIView, size: CGSize = .zero, offset: CGPoint = .zero) -> UIView {
+        view.addSubview(self)
+        return centerInSuperview(size: size, offset: offset)
     }
     
-    @discardableResult
-    public func constrainWidth(_ constant: CGFloat) -> AnchoredConstraints {
-        translatesAutoresizingMaskIntoConstraints = false
-        var anchoredConstraints = AnchoredConstraints()
-        anchoredConstraints.width = widthAnchor.constraint(equalToConstant: constant)
-        anchoredConstraints.width?.isActive = true
-        return anchoredConstraints
-    }
-    
+    /// Convenience init with background color
+    /// - Parameter backgroundColor: color
     convenience public init(backgroundColor: UIColor = .clear) {
         self.init(frame: .zero)
         self.backgroundColor = backgroundColor

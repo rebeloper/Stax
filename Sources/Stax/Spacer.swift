@@ -7,8 +7,14 @@
 
 import UIKit
 
+/// Spacer push-out view
 @available(iOS 11.0, *)
 public class Spacer: UIView {
+    
+    /// Creates a push-out view with an optional width and/or height
+    /// - Parameters:
+    ///   - width: spacer width
+    ///   - height: spacer height
     public init(width: CGFloat? = nil, height: CGFloat? = nil) {
         super.init(frame: .zero)
         if let width = width, let height = height {

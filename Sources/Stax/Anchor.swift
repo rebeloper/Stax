@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Anchor types
 @available(iOS 11.0, *)
 public enum Anchor {
     case top(_ top: NSLayoutYAxisAnchor, constant: CGFloat = 0)

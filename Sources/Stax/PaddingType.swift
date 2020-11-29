@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+/// Padding types
 public enum PaddingType {
     case leading, trailing, top, bottom, horizontal, vertical
 }

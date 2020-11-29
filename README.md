@@ -29,6 +29,7 @@ Download and include the `Stax` folder and files in your codebase.
 - [X] Write UI code in a declarative way (much like in `SwiftUI`).
 - [X] Easy-to-understand usage.
 - [X] No external dependencies.
+- [X] 100% Documented.
 
 ## How To Use
 ### Import

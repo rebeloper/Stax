@@ -10,6 +10,7 @@ import UIKit
 @available(iOS 11.0, *)
 public class ScrollView: UIScrollView {
     
+    /// Scroll view axis
     var axis: NSLayoutConstraint.Axis = .vertical {
         didSet {
             stackViewWidthConstraint.isActive = (axis == .vertical)
@@ -17,10 +18,15 @@ public class ScrollView: UIScrollView {
         }
     }
     
+    /// Content view
     private var content = UIView()
+    /// Width constraint
     private var stackViewWidthConstraint = NSLayoutConstraint()
+    /// Height constraint
     private var stackViewHeightConstraint = NSLayoutConstraint()
     
+    /// Initializes a `UIScrolView` with a content view
+    /// - Parameter content: content view
     public init(_ content: UIView) {
         super.init(frame: .zero)
         self.content = content
@@ -31,6 +37,8 @@ public class ScrollView: UIScrollView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /// Configures the scroll view with a content view
+    /// - Parameter view: content
     private func configure(view: UIView) {
 
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -50,23 +58,37 @@ public class ScrollView: UIScrollView {
         stackViewHeightConstraint.isActive = (axis == .horizontal)
     }
     
+    /// Sets the axis of the scroll view
+    /// - Parameter axis: scroll view axis
+    /// - Returns: scroll view
     @discardableResult
     public func axis(_ axis: NSLayoutConstraint.Axis) -> ScrollView {
         self.axis = axis
         return self
     }
     
+    /// Sets the padding of the scroll view with `UIEdgeInsets`
+    /// - Parameter insets: scroll view padding
+    /// - Returns: scroll view
     @discardableResult
     public func padding(_ insets: UIEdgeInsets) -> ScrollView {
         contentInset = insets
         return self
     }
     
+    /// Sets the padding of the scroll view with a constant
+    /// - Parameter constant: scroll view padding constant
+    /// - Returns: scroll view
     @discardableResult
     public func padding(by constant: CGFloat) -> ScrollView {
         padding(UIEdgeInsets(top: constant, left: constant, bottom: constant, right: constant))
     }
     
+    /// Sets the padding of the scroll view padding type with a constant
+    /// - Parameters:
+    ///   - type: padding type
+    ///   - constant: scroll view padding constant
+    /// - Returns: scroll view
     @discardableResult
     public func padding(_ type: PaddingType, _ constant: CGFloat) -> ScrollView {
         switch type {
@@ -88,18 +110,27 @@ public class ScrollView: UIScrollView {
         return self
     }
     
+    /// Sets the bounces property of the scroll view
+    /// - Parameter bounces: scroll view bounces
+    /// - Returns: scroll view
     @discardableResult
     public func bounces(_ bounces: Bool = true) -> ScrollView {
         self.bounces = bounces
         return self
     }
     
+    /// Sets the pages property of the scroll view
+    /// - Parameter isPagingEnabled: scroll view bounces
+    /// - Returns: scroll view
     @discardableResult
     public func pages(_ isPagingEnabled: Bool = true) -> ScrollView {
         self.isPagingEnabled = isPagingEnabled
         return self
     }
     
+    /// Sets the showsScrollIndicator property of the scroll view
+    /// - Parameter showsScrollIndicator: scroll view showsScrollIndicator
+    /// - Returns: scroll view
     @discardableResult
     public func showsScrollIndicator(_ showsScrollIndicator: Bool = true) -> ScrollView {
         if axis == .horizontal {
@@ -110,11 +141,20 @@ public class ScrollView: UIScrollView {
         return self
     }
     
+    /// Hides the scroll indicator of the scroll view
+    /// - Parameter hidesScrollIndicator: hides scroll indicator
+    /// - Returns: scroll view
     @discardableResult
     public func hidesScrollIndicator(_ hidesScrollIndicator: Bool = true) -> ScrollView {
         showsScrollIndicator(!hidesScrollIndicator)
     }
     
+    /// Lays out the view in a parent view woth safe area and padding
+    /// - Parameters:
+    ///   - view: the parent view
+    ///   - withSafeArea: safe area
+    ///   - padding: padding
+    /// - Returns: scroll view
     @discardableResult
     public func layout(in view: UIView, withSafeArea: Bool = false, padding: UIEdgeInsets = .zero) -> UIScrollView {
         view.addSubview(self)
@@ -126,13 +166,22 @@ public class ScrollView: UIScrollView {
         return self
     }
     
+    /// Centers a view inside a parent view with a size and offset
+    /// - Parameters:
+    ///   - view: parent view
+    ///   - size: size of the view
+    ///   - offset: offset of the view
+    /// - Returns: scroll view
     @discardableResult
-    public func center(inside superView: UIView, size: CGSize = .zero, offset: CGPoint = .zero) -> ScrollView {
-        superView.addSubview(self)
+    public func center(inside view: UIView, size: CGSize = .zero, offset: CGPoint = .zero) -> ScrollView {
+        view.addSubview(self)
         centerInSuperview(size: size, offset: offset)
         return self
     }
     
+    /// Sets the background color of the scroll view
+    /// - Parameter color: color
+    /// - Returns: scroll view
     @discardableResult
     public func background(color: UIColor) -> ScrollView {
         self.backgroundColor = color

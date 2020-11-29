@@ -7,6 +7,8 @@
 
 import UIKit
 
+/// Anchored Constraints Types
+@available(iOS 11.0, *)
 public struct AnchoredConstraints {
     public var top, leading, bottom, trailing, width, height: NSLayoutConstraint?
 }
