@@ -40,6 +40,14 @@ extension UIView {
     }
     
     @discardableResult
+    public func size<T: UIView>(width: CGFloat, height: CGFloat) -> T {
+        translatesAutoresizingMaskIntoConstraints = false
+        widthAnchor.constraint(equalToConstant: width).isActive = true
+        heightAnchor.constraint(equalToConstant: height).isActive = true
+        return self as! T
+    }
+    
+    @discardableResult
     public func height(_ height: CGFloat) -> UIView {
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: height).isActive = true
