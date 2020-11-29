@@ -406,9 +406,9 @@ class ViewController: UIViewController {
 
 ## Contact
 
-<a href="http://rebeloper.com/">rebeloper.com</a>
-<a href="http://www.youtube.com/rebeloper/">YouTube</a>
-<a href="http://store.rebeloper.com/">Shop</a>
+<a href="http://rebeloper.com/">rebeloper.com</a> / 
+<a href="http://www.youtube.com/rebeloper/">YouTube</a> / 
+<a href="http://store.rebeloper.com/">Shop</a> / 
 <a href="http://rebeloper.com/mentoring">Mentoring</a>
 
 ## License
