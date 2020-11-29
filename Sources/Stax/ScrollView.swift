@@ -116,9 +116,13 @@ public class ScrollView: UIScrollView {
     }
     
     @discardableResult
-    public func layout(in view: UIView) -> ScrollView {
+    func layout(in view: UIView, withSafeArea: Bool = false, padding: UIEdgeInsets = .zero) -> UIScrollView {
         view.addSubview(self)
-        self.fillSuperview()
+        if withSafeArea {
+            self.fillSuperviewSafeAreaLayoutGuide(padding: padding)
+        } else {
+            self.fillSuperview(padding: padding)
+        }
         return self
     }
     
