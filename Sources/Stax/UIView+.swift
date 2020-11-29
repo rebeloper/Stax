@@ -61,10 +61,11 @@ extension UIView {
         return self
     }
     
-}
-
-@available(iOS 11.0, tvOS 11.0, *)
-extension UIView {
+    @discardableResult
+    public func backgroundColor(_ color: UIColor) -> UIView {
+        self.backgroundColor = color
+        return self
+    }
     
     @discardableResult
     public func anchor(_ anchors: Anchor...) -> AnchoredConstraints {
