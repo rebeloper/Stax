@@ -86,6 +86,14 @@ extension UIView {
         return self
     }
     
+    /// Sets the size of the view to be a square
+    /// - Parameter length: length
+    /// - Returns: view
+    @discardableResult
+    public func square<T: UIView>(_ length: CGFloat) -> T {
+        size(width: length, height: length)
+    }
+    
     /// Sets the background color of the view
     /// - Parameter color: color
     /// - Returns: stack view
