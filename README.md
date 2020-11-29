@@ -16,7 +16,19 @@ Download and include the `Stax` folder and files in your codebase.
 - Swift 5
 
 ## Concept
-`Stax` uses the idea of laying out yor views entirely with **Stacks**. Under the hood it uses `UIStackView`s to create horizontal or vertical stacks. You may set any of these **Stacks** to be scrollable. **Stacks** are nestable and follow a declarative writing style. As a bonus you may also center a view inside another one.
+`Stax` uses the idea of laying out your views entirely with **Stacks**. Under the hood it uses `UIStackView`s to create horizontal or vertical stacks. You may set any of these **Stacks** to be scrollable. **Stacks** are nestable and follow a declarative writing style. As a bonus you may also center a view inside another one.
+
+## Features
+- [X] Pure Swift 5 sweetness.
+- [X] Everything you can do with Auto Layout, but shorter.
+- [X] Constraints are active by default.
+- [X] 100% compatible with other Auto Layout code.
+- [X] No need to set `translatesAutoresizingMaskIntoConstraints` because `Stax` does it for you.
+- [X] Leverages the power of `UIScrollView` and `UIStackView`.
+- [X] Lay out views with Stacks **only**. 
+- [X] Write UI code in a declarative way (much like in `SwiftUI`).
+- [X] Easy-to-understand usage.
+- [X] No external dependencies.
 
 ## How To Use
 ### Import
