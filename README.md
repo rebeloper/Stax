@@ -410,8 +410,11 @@ class ViewController: UIViewController {
         view7.center(in: view4, offset: CGPoint(x: -50, y: -50))
 
         ui.scroll(to: view6, axis: .vertical, offset: 20, delay: 0.5)
-            .scroll(.toBottom, delay: 5)
-            .scroll(.toTop, delay: 7, animated: false)
+            .scroll(.toTop, delay: 5, animated: false)
+            .scroll(.toBottom, delay: 7)
+
+        view11.hide(after: 8)
+        view11.show(after: 9, animated: false)
         
     }
 }
