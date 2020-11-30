@@ -339,6 +339,19 @@ override func viewDidLoad() {
 }
 ```
 
+### 👁 Show / Hide Views
+
+We may show/hide views with an optional delay and animation. The default `delay` is `0`. Default animation is set to `true`. Can be set to any view that inherits from `UIView`.
+
+```
+view11.hide()
+
+view11.show()
+
+view11.hide(after: 8)
+view11.show(after: 9, animated: false)
+```
+
 ### 📱 Example
 
 Here is an in depth example view controller detailing all of the features of `Stax`
