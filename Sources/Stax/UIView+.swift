@@ -262,5 +262,34 @@ extension UIView {
         self.backgroundColor = backgroundColor
     }
     
+    /// Hides the view with an optional delay and animation
+    /// - Parameters:
+    ///   - delay: delay
+    ///   - animated: animation
+    /// - Returns: view
+    @discardableResult
+    public func hide<T: UIView>(after delay: Double = 0, animated: Bool = true) -> T {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) {
+            UIView.animate(withDuration: animated ? 0.3 : 0.0) {
+                self.isHidden = true
+            }
+        }
+        return self as! T
+    }
+    
+    /// Shows the view with an optional delay and animation
+    /// - Parameters:
+    ///   - delay: delay
+    ///   - animated: animation
+    /// - Returns: view
+    @discardableResult
+    public func show<T: UIView>(after delay: Double = 0, animated: Bool = true) -> T {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) {
+            UIView.animate(withDuration: animated ? 0.3 : 0.0) {
+                self.isHidden = false
+            }
+        }
+        return self as! T
+    }
 }
 
