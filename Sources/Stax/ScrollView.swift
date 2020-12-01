@@ -182,11 +182,11 @@ public class ScrollView: UIScrollView {
     /// Sets the background color of the scroll view
     /// - Parameter color: color
     /// - Returns: scroll view
-    @discardableResult
-    public func background(color: UIColor) -> ScrollView {
-        self.backgroundColor = color
-        return self
-    }
+//    @discardableResult
+//    public func background(color: UIColor) -> ScrollView {
+//        self.backgroundColor = color
+//        return self
+//    }
     
     /// Scrolls to a specified view on a specified axis
     /// - Parameters:

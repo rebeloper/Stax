@@ -99,7 +99,7 @@ VStack(
 
 ```
 VStack(
-    Divider(400).backgroundColor(.systemOrange),
+    Divider(.vertical, 400).backgroundColor(.systemOrange),
     Spacer()
 ).layout(in: view)
 ```
