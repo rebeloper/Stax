@@ -8,4 +8,4 @@
 import UIKit
 
 /// Spacer push-out view
-typealias Spacer = UIView
+public typealias Spacer = UIView
