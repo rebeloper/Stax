@@ -26,12 +26,12 @@ public class Line: UIView {
         switch axis {
         case .horizontal:
             HStack(HDivider(insets.left),
-                   UIView(backgroundColor: backgroundColor),
+                   view,
                    HDivider(insets.right)).layout(in: self)
             self.height(length)
         case .vertical:
             VStack(VDivider(insets.top),
-                   UIView(backgroundColor: backgroundColor),
+                   view,
                    VDivider(insets.bottom)).layout(in: self)
             self.width(length)
         @unknown default:
