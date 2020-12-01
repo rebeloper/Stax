@@ -15,13 +15,18 @@ public class Line: UIView {
     /// - Parameters:
     ///   - axis: axis
     ///   - lenght: length
-    public init(_ axis: NSLayoutConstraint.Axis = .vertical, _ length: CGFloat = 1, _ backgroundColor: UIColor = .systemGray) {
+    public init(_ axis: NSLayoutConstraint.Axis = .vertical, _ length: CGFloat = 1, _ backgroundColor: UIColor = .systemGray, insets: UIEdgeInsets = .zero) {
         super.init(frame: .zero)
-        self.backgroundColor = backgroundColor
         switch axis {
         case .horizontal:
+            HStack(HDivider(insets.left),
+                   UIView(backgroundColor: backgroundColor),
+                   HDivider(insets.right)).layout(in: self)
             self.height(length)
         case .vertical:
+            VStack(VDivider(insets.top),
+                   UIView(backgroundColor: backgroundColor),
+                   VDivider(insets.bottom)).layout(in: self)
             self.width(length)
         @unknown default:
             print("@unknown default")
@@ -41,10 +46,12 @@ public class VLine: UIView {
     /// - Parameters:
     ///   - axis: axis
     ///   - lenght: length
-    public init(_ length: CGFloat = 1, _ backgroundColor: UIColor = .systemGray) {
+    public init(_ length: CGFloat = 1, _ backgroundColor: UIColor = .systemGray, insets: UIEdgeInsets = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)) {
         super.init(frame: .zero)
-        self.backgroundColor = backgroundColor
-        self.height(length)
+        VStack(VDivider(insets.top),
+               UIView(backgroundColor: backgroundColor),
+               VDivider(insets.bottom)).layout(in: self)
+        self.width(length)
     }
     
     public required init?(coder: NSCoder) {
@@ -60,10 +67,12 @@ public class HLine: UIView {
     /// - Parameters:
     ///   - axis: axis
     ///   - lenght: length
-    public init(_ length: CGFloat = 1, _ backgroundColor: UIColor = .systemGray) {
+    public init(_ length: CGFloat = 1, _ backgroundColor: UIColor = .systemGray, insets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)) {
         super.init(frame: .zero)
-        self.backgroundColor = backgroundColor
-        self.width(length)
+        HStack(HDivider(insets.left),
+               UIView(backgroundColor: backgroundColor),
+               HDivider(insets.right)).layout(in: self)
+        self.height(length)
     }
     
     public required init?(coder: NSCoder) {
