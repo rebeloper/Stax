@@ -41,7 +41,7 @@ public class VLine: UIView {
     /// - Parameters:
     ///   - axis: axis
     ///   - lenght: length
-    public init(_ length: CGFloat = 16, _ backgroundColor: UIColor = .systemGray) {
+    public init(_ length: CGFloat = 1, _ backgroundColor: UIColor = .systemGray) {
         super.init(frame: .zero)
         self.backgroundColor = backgroundColor
         self.height(length)
@@ -60,7 +60,7 @@ public class HLine: UIView {
     /// - Parameters:
     ///   - axis: axis
     ///   - lenght: length
-    public init(_ length: CGFloat = 16, _ backgroundColor: UIColor = .systemGray) {
+    public init(_ length: CGFloat = 1, _ backgroundColor: UIColor = .systemGray) {
         super.init(frame: .zero)
         self.backgroundColor = backgroundColor
         self.width(length)
