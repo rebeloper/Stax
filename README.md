@@ -418,11 +418,11 @@ class ViewController: UIViewController {
     lazy var ui =
         VStack(
             HStack(view1, view2, view3).scrolls(.horizontal).padding(.horizontal, 100).pages(),
-            VStack(view4).background(color: .systemBlue).padding(.vertical, 200),
+            VStack(view4).background(.systemBlue).padding(.vertical, 200),
             HStack(view9, Spacer(), view10),
             view8,
             VStack(view11, view12, view13).spacing(),
-            Spacer(height: 400).backgroundColor(.systemOrange)
+            Divider(.vertical, 400).background(color: .systemOrange)
         ).spacing(12)
         //        .axis(.vertical)
         //        .alignment(.fill)
@@ -439,7 +439,7 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
         
         HStack(view5, view6)
-            .background(color: .systemGray)
+            .background(.systemGray)
             .scrolls(.horizontal)
             .hidesScrollIndicator()
             .scroll(to: view6, axis: .horizontal, delay: 2)
@@ -451,7 +451,7 @@ class ViewController: UIViewController {
         ui.scroll(to: view6, axis: .vertical, offset: 20, delay: 0.5)
             .scroll(.toTop, delay: 5, animated: false)
             .scroll(.toBottom, delay: 7)
-
+        
         view11.hide(after: 8)
         view11.show(after: 9, animated: false)
         
