@@ -11,16 +11,18 @@ import UIKit
 @available(iOS 11.0, *)
 public class Line: UIView {
     
-    /// Creates a divider view with an optional length. Default `axis` is `.vertical`
+    /// Creates a line view. Default `axis` is `.vertical`; `length` is `1`; `backgroundColor` is `.systemGray`; `insets` is `.zero`; `withRoundedCorners` is `true`
     /// - Parameters:
     ///   - axis: axis
-    ///   - lenght: length
+    ///   - length: length
+    ///   - backgroundColor: backgroundColor
+    ///   - insets: insets
+    ///   - withRoundedCorners: withRoundedCorners
     public init(_ axis: NSLayoutConstraint.Axis = .vertical, _ length: CGFloat = 1, _ backgroundColor: UIColor = .systemGray, insets: UIEdgeInsets = .zero, withRoundedCorners: Bool = true) {
         super.init(frame: .zero)
         let view = UIView(backgroundColor: backgroundColor)
         if withRoundedCorners {
             view.layer.cornerRadius = length / 2
-//            view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
             view.layer.masksToBounds = true
         }
         switch axis {
@@ -48,16 +50,17 @@ public class Line: UIView {
 @available(iOS 11.0, *)
 public class VLine: UIView {
     
-    /// Creates a vertical divider view with an optional length.
+    /// Creates a vertical line view. Default `length` is `1`; `backgroundColor` is `.systemGray`; `insets` is `UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)`; `withRoundedCorners` is `true`
     /// - Parameters:
-    ///   - axis: axis
-    ///   - lenght: length
+    ///   - length: length
+    ///   - backgroundColor: backgroundColor
+    ///   - insets: insets
+    ///   - withRoundedCorners: withRoundedCorners
     public init(_ length: CGFloat = 1, _ backgroundColor: UIColor = .systemGray, insets: UIEdgeInsets = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0), withRoundedCorners: Bool = true) {
         super.init(frame: .zero)
         let view = UIView(backgroundColor: backgroundColor)
         if withRoundedCorners {
             view.layer.cornerRadius = length / 2
-//            view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
             view.layer.masksToBounds = true
         }
         VStack(VDivider(insets.top),
@@ -75,16 +78,17 @@ public class VLine: UIView {
 @available(iOS 11.0, *)
 public class HLine: UIView {
     
-    /// Creates a horizontal divider view with an optional length.
+    /// Creates a horizontal line view. Default `length` is `1`; `backgroundColor` is `.systemGray`; `insets` is `UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)`; `withRoundedCorners` is `true`
     /// - Parameters:
-    ///   - axis: axis
-    ///   - lenght: length
+    ///   - length: length
+    ///   - backgroundColor: backgroundColor
+    ///   - insets: insets
+    ///   - withRoundedCorners: withRoundedCorners
     public init(_ length: CGFloat = 1, _ backgroundColor: UIColor = .systemGray, insets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12), withRoundedCorners: Bool = true) {
         super.init(frame: .zero)
         let view = UIView(backgroundColor: backgroundColor)
         if withRoundedCorners {
             view.layer.cornerRadius = length / 2
-//            view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
             view.layer.masksToBounds = true
         }
         HStack(HDivider(insets.left),

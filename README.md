@@ -139,6 +139,46 @@ HStack(
 ).layout(in: view)
 ```
 
+### 👇___ Line
+
+Adding a line in your UI is common. You may add a `Line` with a lot of properties, `VLine` for a vertical line, `HLine` for a horizontal line.
+
+```
+VStack(
+    VDivider().background(color: .systemOrange),
+    HLine(),
+    VDivider().background(color: .systemOrange),
+    Spacer()
+).layout(in: view)
+```
+
+```
+HStack(
+    HDivider().background(color: .systemOrange),
+    VLine(),
+    HDivider().background(color: .systemOrange),
+    Spacer()
+).layout(in: view)
+```
+
+```
+VStack(
+    VDivider().background(color: .systemOrange),
+    Line(.horizontal, 6, UIColor.black.withAlphaComponent(0.5), insets: UIEdgeInsets(top: 0, left: 48, bottom: 0, right: 48)),
+    VDivider().background(color: .systemOrange),
+    Spacer()
+).layout(in: view)
+```
+
+```
+HStack(
+    HDivider().background(color: .systemOrange),
+    VLine(30, .black, insets: UIEdgeInsets(top: 10, left: 0, bottom: 50, right: 0), withRoundedCorners: false),
+    HDivider().background(color: .systemOrange),
+    Spacer()
+).layout(in: view)
+```
+
 ### 🎨 Background color
 
 When you build out views with `Stax` you may not properly evaluate where the stack's views are layed out exactly. To make our lives easier we can just simply add background colors.
@@ -418,8 +458,10 @@ class ViewController: UIViewController {
     lazy var ui =
         VStack(
             HStack(view1, view2, view3).scrolls(.horizontal).padding(.horizontal, 100).pages(),
+            HLine(),
             VStack(view4).background(.systemBlue).padding(.vertical, 200),
-            HStack(view9, Spacer(), view10),
+            HStack(view9, VLine(30, .black, insets: UIEdgeInsets(top: 10, left: 0, bottom: 50, right: 0), withRoundedCorners: false), Spacer(), view10),
+            Line(.horizontal, 6, UIColor.black.withAlphaComponent(0.5), insets: UIEdgeInsets(top: 0, left: 48, bottom: 0, right: 48)),
             view8,
             VStack(view11, view12, view13).spacing(),
             Divider(.vertical, 400).background(color: .systemOrange)
