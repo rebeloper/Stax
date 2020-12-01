@@ -70,20 +70,20 @@ extension UIView {
     /// - Parameter height: height
     /// - Returns: view
     @discardableResult
-    public func height(_ height: CGFloat) -> UIView {
+    public func height<T: UIView>(_ height: CGFloat) -> T {
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: height).isActive = true
-        return self
+        return self as! T
     }
     
     /// Set the width of a view
     /// - Parameter width: width
     /// - Returns: view
     @discardableResult
-    public func width(_ width: CGFloat) -> UIView {
+    public func width<T: UIView>(_ width: CGFloat) -> T {
         translatesAutoresizingMaskIntoConstraints = false
         widthAnchor.constraint(equalToConstant: width).isActive = true
-        return self
+        return self as! T
     }
     
     /// Sets the size of the view to be a square
@@ -98,9 +98,9 @@ extension UIView {
     /// - Parameter color: color
     /// - Returns: stack view
     @discardableResult
-    public func backgroundColor(_ color: UIColor) -> UIView {
+    public func background<T: UIView>(color: UIColor) -> T {
         self.backgroundColor = color
-        return self
+        return self as! T
     }
     
     /// Anchors a view with an array of anchors
@@ -223,7 +223,7 @@ extension UIView {
     ///   - offset: offset of view
     /// - Returns: super view
     @discardableResult
-    public func centerInSuperview(size: CGSize = .zero, offset: CGPoint = .zero) -> UIView {
+    public func centerInSuperview<T: UIView>(size: CGSize = .zero, offset: CGPoint = .zero) -> T {
         translatesAutoresizingMaskIntoConstraints = false
         if let superviewCenterXAnchor = superview?.centerXAnchor {
             centerXAnchor.constraint(equalTo: superviewCenterXAnchor, constant: offset.x).isActive = true
@@ -240,7 +240,7 @@ extension UIView {
         if size.height != 0 {
             heightAnchor.constraint(equalToConstant: size.height).isActive = true
         }
-        return superview!
+        return superview! as! T
     }
     
     /// Adds to super view and centers the view in its super view with size and offset
@@ -250,7 +250,7 @@ extension UIView {
     ///   - offset: offset of the view
     /// - Returns: super view
     @discardableResult
-    public func center(in view: UIView, size: CGSize = .zero, offset: CGPoint = .zero) -> UIView {
+    public func center<T: UIView>(in view: UIView, size: CGSize = .zero, offset: CGPoint = .zero) -> T {
         view.addSubview(self)
         return centerInSuperview(size: size, offset: offset)
     }

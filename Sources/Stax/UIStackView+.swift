@@ -125,7 +125,7 @@ extension UIStackView {
     /// - Parameter color: color
     /// - Returns: stack view
     @discardableResult
-    public func background(color: UIColor) -> UIStackView {
+    public func background(_ color: UIColor) -> UIStackView {
         let subView = UIView(frame: bounds)
         subView.backgroundColor = color
         subView.autoresizingMask = [.flexibleWidth, .flexibleHeight]

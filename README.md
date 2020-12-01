@@ -75,7 +75,7 @@ let view12 = UIView(backgroundColor: .systemGray4).height(50)
 let view13 = UIView(backgroundColor: .systemGray3).height(50)
 ```
 
-### 👈👉 Spacer
+### 👈.....👉 Spacer
 
 Since `UIStackView` is a pull-in view we will need a push-out view in order to use them more efficiently. This is where `Spacer` comes in. It is an empty `UIView` that can push views. Here's an example of a `Spacer` pushing `view2` to the top in this `VStack` layed out in the view controller's `view`. (Don't worry about understanding the stack or the layout. We'll talk about them soon enough.)
 
@@ -86,18 +86,55 @@ VStack(
 ).layout(in: view)
 ```
 
-Spacers may also have `width` and/or  `height`:
+### 👈.👉 Divider
+
+Dividers are much like `Spacer`s but they have a fixed `width` / `height`. By default this value is `16`. Dividers have two axis: `.vertical`, `.horizontal`. Default axis is `.vertical`. You may also want to use `VDivider` and `HDivider`.
 
 ```
 VStack(
-    Spacer(height: 400).backgroundColor(.systemOrange),
+    Divider().backgroundColor(.systemOrange),
+    Spacer()
+).layout(in: view)
+```
+
+```
+VStack(
+    Divider(400).backgroundColor(.systemOrange),
+    Spacer()
+).layout(in: view)
+```
+
+```
+VStack(
+    VDivider().backgroundColor(.systemOrange),
+    Spacer()
+).layout(in: view)
+```
+
+```
+VStack(
+    VDivider(400).backgroundColor(.systemOrange),
     Spacer()
 ).layout(in: view)
 ```
 
 ```
 HStack(
-    Spacer(width: 400).backgroundColor(.systemOrange),
+    Divider(.horizontal, 400).backgroundColor(.systemOrange),
+    Spacer()
+).layout(in: view)
+```
+
+```
+HStack(
+    HDivider().backgroundColor(.systemOrange),
+    Spacer()
+).layout(in: view)
+```
+
+```
+HStack(
+    HDivider(400).backgroundColor(.systemOrange),
     Spacer()
 ).layout(in: view)
 ```
@@ -108,7 +145,7 @@ When you build out views with `Stax` you may not properly evaluate where the sta
 
 ```
 // UIView
-view1.backgroundColor(.systemOrange)
+view1.background(color: .systemOrange)
 ```
 
 ```
@@ -116,7 +153,7 @@ view1.backgroundColor(.systemOrange)
 VStack(
     view2,
     Spacer()
-).background(color: .systemBlue)
+).background(.systemBlue)
 ```
 
 ```
@@ -124,7 +161,7 @@ VStack(
 VStack(
     Spacer()
 ).scrolls(.vertical)
-.background(color: .systemGreen)
+.background(.systemGreen)
 ```
 
 ### 🍩 Centering
