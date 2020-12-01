@@ -15,8 +15,14 @@ public class Line: UIView {
     /// - Parameters:
     ///   - axis: axis
     ///   - lenght: length
-    public init(_ axis: NSLayoutConstraint.Axis = .vertical, _ length: CGFloat = 1, _ backgroundColor: UIColor = .systemGray, insets: UIEdgeInsets = .zero) {
+    public init(_ axis: NSLayoutConstraint.Axis = .vertical, _ length: CGFloat = 1, _ backgroundColor: UIColor = .systemGray, insets: UIEdgeInsets = .zero, withRoundedCorners: Bool = true) {
         super.init(frame: .zero)
+        let view = UIView(backgroundColor: backgroundColor)
+        if withRoundedCorners {
+            view.layer.cornerRadius = length / 2
+            view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+            view.layer.masksToBounds = true
+        }
         switch axis {
         case .horizontal:
             HStack(HDivider(insets.left),
@@ -46,10 +52,16 @@ public class VLine: UIView {
     /// - Parameters:
     ///   - axis: axis
     ///   - lenght: length
-    public init(_ length: CGFloat = 1, _ backgroundColor: UIColor = .systemGray, insets: UIEdgeInsets = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)) {
+    public init(_ length: CGFloat = 1, _ backgroundColor: UIColor = .systemGray, insets: UIEdgeInsets = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0), withRoundedCorners: Bool = true) {
         super.init(frame: .zero)
+        let view = UIView(backgroundColor: backgroundColor)
+        if withRoundedCorners {
+            view.layer.cornerRadius = length / 2
+            view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+            view.layer.masksToBounds = true
+        }
         VStack(VDivider(insets.top),
-               UIView(backgroundColor: backgroundColor),
+               view,
                VDivider(insets.bottom)).layout(in: self)
         self.width(length)
     }
@@ -67,10 +79,16 @@ public class HLine: UIView {
     /// - Parameters:
     ///   - axis: axis
     ///   - lenght: length
-    public init(_ length: CGFloat = 1, _ backgroundColor: UIColor = .systemGray, insets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)) {
+    public init(_ length: CGFloat = 1, _ backgroundColor: UIColor = .systemGray, insets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12), withRoundedCorners: Bool = true) {
         super.init(frame: .zero)
+        let view = UIView(backgroundColor: backgroundColor)
+        if withRoundedCorners {
+            view.layer.cornerRadius = length / 2
+            view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+            view.layer.masksToBounds = true
+        }
         HStack(HDivider(insets.left),
-               UIView(backgroundColor: backgroundColor),
+               view,
                HDivider(insets.right)).layout(in: self)
         self.height(length)
     }
