@@ -24,8 +24,10 @@ Download and include the `Stax` folder and files in your codebase.
 - [X] Constraints are active by default.
 - [X] 100% compatible with other Auto Layout code.
 - [X] No need to set `translatesAutoresizingMaskIntoConstraints` because `Stax` does it for you.
-- [X] Leverages the power of `UIScrollView` and `UIStackView`.
-- [X] Lay out views with Stacks **only**. 
+- [X] Leverages the power of `UIScrollView` and `UIStackView`: stack views, scroll views.
+- [X] Scroll programmatically to top / bottom / left / right.
+- [X] Lay out views with Stacks **only**.
+- [X] Show / hide views on the fly.
 - [X] Write UI code in a declarative way (much like in `SwiftUI`).
 - [X] Easy-to-understand usage.
 - [X] No external dependencies.
