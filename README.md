@@ -92,49 +92,49 @@ Dividers are much like `Spacer`s but they have a fixed `width` / `height`. By de
 
 ```
 VStack(
-    Divider().backgroundColor(.systemOrange),
+    Divider().background(color: .systemOrange),
     Spacer()
 ).layout(in: view)
 ```
 
 ```
 VStack(
-    Divider(.vertical, 400).backgroundColor(.systemOrange),
+    Divider(.vertical, 400).background(color: .systemOrange),
     Spacer()
 ).layout(in: view)
 ```
 
 ```
 VStack(
-    VDivider().backgroundColor(.systemOrange),
+    VDivider().background(color: .systemOrange),
     Spacer()
 ).layout(in: view)
 ```
 
 ```
 VStack(
-    VDivider(400).backgroundColor(.systemOrange),
+    VDivider(400).background(color: .systemOrange),
     Spacer()
 ).layout(in: view)
 ```
 
 ```
 HStack(
-    Divider(.horizontal, 400).backgroundColor(.systemOrange),
+    Divider(.horizontal, 400).background(color: .systemOrange),
     Spacer()
 ).layout(in: view)
 ```
 
 ```
 HStack(
-    HDivider().backgroundColor(.systemOrange),
+    HDivider().background(color: .systemOrange),
     Spacer()
 ).layout(in: view)
 ```
 
 ```
 HStack(
-    HDivider(400).backgroundColor(.systemOrange),
+    HDivider(400).background(color: .systemOrange),
     Spacer()
 ).layout(in: view)
 ```
@@ -179,7 +179,7 @@ HStack(view5, view6).center(inside: view, offset: CGPoint.right(50))
 ```
 
 ```
-// center a Scrolling Stac (Scroll View) inside a view
+// center a Scrolling Stack (Scroll View) inside a view
 // this time we need to set the size of the scroll view's container view
 HStack(view5, view6).scrolls(.horizontal).center(inside: view, size: CGSize(width: 100, height: 100))
 ```
@@ -213,7 +213,7 @@ You can have stacks within stacks.
 VStack(
     HStack(view1, view2, view3)
     VStack(view11, view12, view13),
-    Spacer(height: 4).backgroundColor(.systemOrange)
+    VDivider(4).background(color: .systemOrange)
 ).layout(in: view)
 ```
 
@@ -225,20 +225,20 @@ You can enable scrolling with one line.
 VStack(
     HStack(view1, view2, view3)
     VStack(view11, view12, view13),
-    Spacer(height: 400).backgroundColor(.systemOrange)
+    VDivider(400).background(color: .systemOrange)
 ).scrolls(.vertical).layout(in: view)
 
 VStack(
     HStack(view1, view2, view3)
     VStack(view11, view12, view13),
-    Spacer(height: 400).backgroundColor(.systemOrange)
+    VDivider(400).background(color: .systemOrange)
 ).scrolls().layout(in: view) // the default value of scrolls is .vertical
 ```
 
 ```
 HStack(
     view2,
-    Spacer(width: 400).backgroundColor(.systemOrange),
+    HDivider(400).background(color: .systemOrange),
     view1
 ).scrolls(.horizontal).layout(in: view)
 ```
