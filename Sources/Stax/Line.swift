@@ -20,7 +20,7 @@ public class Line: UIView {
         let view = UIView(backgroundColor: backgroundColor)
         if withRoundedCorners {
             view.layer.cornerRadius = length / 2
-            view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+//            view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
             view.layer.masksToBounds = true
         }
         switch axis {
@@ -57,7 +57,7 @@ public class VLine: UIView {
         let view = UIView(backgroundColor: backgroundColor)
         if withRoundedCorners {
             view.layer.cornerRadius = length / 2
-            view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+//            view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
             view.layer.masksToBounds = true
         }
         VStack(VDivider(insets.top),
@@ -84,7 +84,7 @@ public class HLine: UIView {
         let view = UIView(backgroundColor: backgroundColor)
         if withRoundedCorners {
             view.layer.cornerRadius = length / 2
-            view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+//            view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
             view.layer.masksToBounds = true
         }
         HStack(HDivider(insets.left),
