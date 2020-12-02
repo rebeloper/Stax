@@ -45,38 +45,32 @@ extension UIView {
     /// Set the width and height of a view with optinal delay and animation (set by providing the superview)
     /// - Parameter width: width
     /// - Parameter height: height
-    /// - Parameter delay: delay
     /// - Parameter animatedInView: animatedInView
     /// - Returns: view
     @discardableResult
-    public func size<T: UIView>(width: CGFloat, height: CGFloat, delay: Double = 0, animatedInRootView: UIView? = nil) -> T {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay, execute: {
-            self.set(width: width, height: height)
-            if animatedInRootView != nil {
-                UIViewPropertyAnimator(duration: 0.3, curve: .easeInOut, animations: {
-                    animatedInRootView!.layoutIfNeeded()
-                }).startAnimation()
-            }
-        })
+    public func size<T: UIView>(width: CGFloat, height: CGFloat, animatedInRootView: UIView? = nil) -> T {
+        self.set(width: width, height: height)
+        if animatedInRootView != nil {
+            UIViewPropertyAnimator(duration: 0.3, curve: .easeInOut, animations: {
+                animatedInRootView!.layoutIfNeeded()
+            }).startAnimation()
+        }
         return self as! T
     }
     
     /// Set the width and height of a view with optinal delay and animation (set by providing the superview)
     /// - Parameter width: width
     /// - Parameter height: height
-    /// - Parameter delay: delay
     /// - Parameter animatedInView: animatedInView
     /// - Returns: view
     @discardableResult
-    public func size<T: UIView>(_ size: CGSize, delay: Double = 0, animatedInRootView: UIView? = nil) -> T {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay, execute: {
-            self.set(width: size.width, height: size.height)
-            if animatedInRootView != nil {
-                UIViewPropertyAnimator(duration: 0.3, curve: .easeInOut, animations: {
-                    animatedInRootView!.layoutIfNeeded()
-                }).startAnimation()
-            }
-        })
+    public func size<T: UIView>(_ size: CGSize, animatedInRootView: UIView? = nil) -> T {
+        self.set(width: size.width, height: size.height)
+        if animatedInRootView != nil {
+            UIViewPropertyAnimator(duration: 0.3, curve: .easeInOut, animations: {
+                animatedInRootView!.layoutIfNeeded()
+            }).startAnimation()
+        }
         return self as! T
     }
     
@@ -94,19 +88,16 @@ extension UIView {
     
     /// Set the height of a view with optinal delay and animation (set by providing the superview)
     /// - Parameter height: height
-    /// - Parameter delay: delay
     /// - Parameter animatedInView: animatedInView
     /// - Returns: view
     @discardableResult
-    public func height<T: UIView>(_ height: CGFloat, delay: Double = 0, animatedInRootView: UIView? = nil) -> T {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay, execute: {
-            self.set(height: height)
-            if animatedInRootView != nil {
-                UIViewPropertyAnimator(duration: 0.3, curve: .easeInOut, animations: {
-                    animatedInRootView!.layoutIfNeeded()
-                }).startAnimation()
-            }
-        })
+    public func height<T: UIView>(_ height: CGFloat, animatedInRootView: UIView? = nil) -> T {
+        self.set(height: height)
+        if animatedInRootView != nil {
+            UIViewPropertyAnimator(duration: 0.3, curve: .easeInOut, animations: {
+                animatedInRootView!.layoutIfNeeded()
+            }).startAnimation()
+        }
         return self as! T
     }
     
@@ -126,15 +117,13 @@ extension UIView {
     /// - Parameter animatedInView: animatedInView
     /// - Returns: view
     @discardableResult
-    public func width<T: UIView>(_ width: CGFloat, delay: Double = 0, animatedInRootView: UIView? = nil) -> T {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay, execute: {
-            self.set(width: width)
-            if animatedInRootView != nil {
-                UIViewPropertyAnimator(duration: 0.3, curve: .easeInOut, animations: {
-                    animatedInRootView!.layoutIfNeeded()
-                }).startAnimation()
-            }
-        })
+    public func width<T: UIView>(_ width: CGFloat, animatedInRootView: UIView? = nil) -> T {
+        self.set(width: width)
+        if animatedInRootView != nil {
+            UIViewPropertyAnimator(duration: 0.3, curve: .easeInOut, animations: {
+                animatedInRootView!.layoutIfNeeded()
+            }).startAnimation()
+        }
         return self as! T
     }
     
