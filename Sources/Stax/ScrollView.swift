@@ -183,7 +183,7 @@ public class ScrollView: UIScrollView {
     /// - Parameter color: color
     /// - Returns: scroll view
     @discardableResult
-    public func background(color: UIColor) -> ScrollView {
+    public func background(_ color: UIColor) -> ScrollView {
         self.backgroundColor = color
         return self
     }

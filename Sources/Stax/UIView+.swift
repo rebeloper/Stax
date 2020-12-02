@@ -42,55 +42,117 @@ extension UIView {
         return _stack(.horizontal, views: views)
     }
     
-    /// Sets the size of the view with a `CGSize`
-    /// - Parameter size: size
+    /// Set the width and height of a view with optinal delay and animation (set by providing the superview)
+    /// - Parameter width: width
+    /// - Parameter height: height
+    /// - Parameter delay: delay
+    /// - Parameter animatedInView: animatedInView
     /// - Returns: view
     @discardableResult
-    public func size<T: UIView>(_ size: CGSize) -> T {
-        translatesAutoresizingMaskIntoConstraints = false
-        widthAnchor.constraint(equalToConstant: size.width).isActive = true
-        heightAnchor.constraint(equalToConstant: size.height).isActive = true
-        return self as! T
+    public func size(width: CGFloat, height: CGFloat, delay: Double = 0, animatedInRootView: UIView? = nil) -> UIView {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay, execute: {
+            self.set(width: width, height: height)
+            if animatedInRootView != nil {
+                UIViewPropertyAnimator(duration: 0.3, curve: .easeInOut, animations: {
+                    animatedInRootView!.layoutIfNeeded()
+                }).startAnimation()
+            }
+        })
+        return self
     }
     
-    /// Sets the size of the view with a width and height
-    /// - Parameters:
-    ///   - width: width
-    ///   - height: height
+    /// Set the width and height of a view with optinal delay and animation (set by providing the superview)
+    /// - Parameter width: width
+    /// - Parameter height: height
+    /// - Parameter delay: delay
+    /// - Parameter animatedInView: animatedInView
     /// - Returns: view
     @discardableResult
-    public func size<T: UIView>(width: CGFloat, height: CGFloat) -> T {
+    public func size(_ size: CGSize, delay: Double = 0, animatedInRootView: UIView? = nil) -> UIView {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay, execute: {
+            self.set(width: size.width, height: size.height)
+            if animatedInRootView != nil {
+                UIViewPropertyAnimator(duration: 0.3, curve: .easeInOut, animations: {
+                    animatedInRootView!.layoutIfNeeded()
+                }).startAnimation()
+            }
+        })
+        return self
+    }
+    
+    /// Set the width and height of a view
+    /// - Parameter width: width
+    /// - Parameter height: height
+    /// - Returns: view
+    @discardableResult
+    public func set(width: CGFloat, height: CGFloat) -> UIView {
         translatesAutoresizingMaskIntoConstraints = false
         widthAnchor.constraint(equalToConstant: width).isActive = true
         heightAnchor.constraint(equalToConstant: height).isActive = true
-        return self as! T
+        return self
+    }
+    
+    /// Set the height of a view with optinal delay and animation (set by providing the superview)
+    /// - Parameter height: height
+    /// - Parameter delay: delay
+    /// - Parameter animatedInView: animatedInView
+    /// - Returns: view
+    @discardableResult
+    public func height(_ height: CGFloat, delay: Double = 0, animatedInRootView: UIView? = nil) -> UIView {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay, execute: {
+            self.set(height: height)
+            if animatedInRootView != nil {
+                UIViewPropertyAnimator(duration: 0.3, curve: .easeInOut, animations: {
+                    animatedInRootView!.layoutIfNeeded()
+                }).startAnimation()
+            }
+        })
+        return self
     }
     
     /// Set the height of a view
     /// - Parameter height: height
     /// - Returns: view
     @discardableResult
-    public func height<T: UIView>(_ height: CGFloat) -> T {
-        translatesAutoresizingMaskIntoConstraints = false
-        heightAnchor.constraint(equalToConstant: height).isActive = true
-        return self as! T
+    public func set(height: CGFloat) -> UIView {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.heightAnchor.constraint(equalToConstant: height).isActive = true
+        return self
+    }
+    
+    /// Set the width of a view with optinal delay and animation (set by providing the superview)
+    /// - Parameter width: width
+    /// - Parameter delay: delay
+    /// - Parameter animatedInView: animatedInView
+    /// - Returns: view
+    @discardableResult
+    public func width(_ width: CGFloat, delay: Double = 0, animatedInRootView: UIView? = nil) -> UIView {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay, execute: {
+            self.set(width: width)
+            if animatedInRootView != nil {
+                UIViewPropertyAnimator(duration: 0.3, curve: .easeInOut, animations: {
+                    animatedInRootView!.layoutIfNeeded()
+                }).startAnimation()
+            }
+        })
+        return self
     }
     
     /// Set the width of a view
     /// - Parameter width: width
     /// - Returns: view
     @discardableResult
-    public func width<T: UIView>(_ width: CGFloat) -> T {
-        translatesAutoresizingMaskIntoConstraints = false
-        widthAnchor.constraint(equalToConstant: width).isActive = true
-        return self as! T
+    public func set(width: CGFloat) -> UIView {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.widthAnchor.constraint(equalToConstant: width).isActive = true
+        return self
     }
     
     /// Sets the size of the view to be a square
     /// - Parameter length: length
     /// - Returns: view
     @discardableResult
-    public func square<T: UIView>(_ length: CGFloat) -> T {
+    public func square(_ length: CGFloat) -> UIView {
         size(width: length, height: length)
     }
     
@@ -98,9 +160,9 @@ extension UIView {
     /// - Parameter color: color
     /// - Returns: stack view
     @discardableResult
-    public func background<T: UIView>(color: UIColor) -> T {
+    public func background(color: UIColor) -> UIView {
         self.backgroundColor = color
-        return self as! T
+        return self
     }
     
     /// Anchors a view with an array of anchors
@@ -223,7 +285,7 @@ extension UIView {
     ///   - offset: offset of view
     /// - Returns: super view
     @discardableResult
-    public func centerInSuperview<T: UIView>(size: CGSize = .zero, offset: CGPoint = .zero) -> T {
+    public func centerInSuperview(size: CGSize = .zero, offset: CGPoint = .zero) -> UIView {
         translatesAutoresizingMaskIntoConstraints = false
         if let superviewCenterXAnchor = superview?.centerXAnchor {
             centerXAnchor.constraint(equalTo: superviewCenterXAnchor, constant: offset.x).isActive = true
@@ -240,7 +302,7 @@ extension UIView {
         if size.height != 0 {
             heightAnchor.constraint(equalToConstant: size.height).isActive = true
         }
-        return superview! as! T
+        return superview!
     }
     
     /// Adds to super view and centers the view in its super view with size and offset
@@ -250,7 +312,7 @@ extension UIView {
     ///   - offset: offset of the view
     /// - Returns: super view
     @discardableResult
-    public func center<T: UIView>(in view: UIView, size: CGSize = .zero, offset: CGPoint = .zero) -> T {
+    public func center(in view: UIView, size: CGSize = .zero, offset: CGPoint = .zero) -> UIView {
         view.addSubview(self)
         return centerInSuperview(size: size, offset: offset)
     }
@@ -268,13 +330,13 @@ extension UIView {
     ///   - animated: animation
     /// - Returns: view
     @discardableResult
-    public func hide<T: UIView>(after delay: Double = 0, animated: Bool = true) -> T {
+    public func hide(after delay: Double = 0, animated: Bool = true) -> UIView {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) {
             UIView.animate(withDuration: animated ? 0.3 : 0.0) {
                 self.isHidden = true
             }
         }
-        return self as! T
+        return self
     }
     
     /// Shows the view with an optional delay and animation
@@ -283,13 +345,13 @@ extension UIView {
     ///   - animated: animation
     /// - Returns: view
     @discardableResult
-    public func show<T: UIView>(after delay: Double = 0, animated: Bool = true) -> T {
+    public func show(after delay: Double = 0, animated: Bool = true) -> UIView {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) {
             UIView.animate(withDuration: animated ? 0.3 : 0.0) {
                 self.isHidden = false
             }
         }
-        return self as! T
+        return self
     }
 }
 
