@@ -344,3 +344,41 @@ extension UIView {
     }
 }
 
+@available(iOS 13.0, *)
+extension UIView {
+    
+    @discardableResult
+    public func debug<T: UIView>(_ options: StaxDebugOptions = StaxDebugOptionsType.adaptive) -> T {
+        let debugView = StaxDebugView(options: options)
+        self.addSubview(debugView)
+        debugView.fillSuperview()
+        self.layer.cornerRadius = options.cornerRadius
+        self.layer.masksToBounds = true
+        return self as! T
+    }
+    
+    convenience public init(backgroundColor: UIColor = .clear, width: CGFloat? = nil, height: CGFloat? = nil, staxDebugOptions: StaxDebugOptions? = nil) {
+        self.init(frame: .zero)
+        self.backgroundColor = backgroundColor
+        if let width = width, height == nil {
+            self.width(width)
+        } else if let height = height, width == nil {
+            self.height(height)
+        } else if let width = width, let height = height {
+            self.size(width: width, height: height)
+        }
+        if staxDebugOptions != nil {
+            self.debug(staxDebugOptions!)
+        }
+    }
+    
+    convenience public init(backgroundColor: UIColor = .clear, square: CGFloat, staxDebugOptions: StaxDebugOptions? = nil) {
+        self.init(frame: .zero)
+        self.backgroundColor = backgroundColor
+        self.square(square)
+        if staxDebugOptions != nil {
+            self.debug(staxDebugOptions!)
+        }
+    }
+}
+

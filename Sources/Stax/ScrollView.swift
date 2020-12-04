@@ -203,9 +203,9 @@ public class ScrollView: UIScrollView {
                 let childStartPoint = origin.convert(view.frame.origin, to: self)
                 switch axis {
                 case .horizontal:
-                    self.setContentOffset(CGPoint(x: childStartPoint.x - self.contentInset.left - offset, y: 0), animated: true)
+                    self.setContentOffset(CGPoint(x: childStartPoint.x - self.contentInset.left - self.safeAreaInsets.left - offset, y: 0), animated: true)
                 case .vertical:
-                    self.setContentOffset(CGPoint(x: 0, y: childStartPoint.y - self.contentInset.top - offset), animated: true)
+                    self.setContentOffset(CGPoint(x: 0, y: childStartPoint.y - self.contentInset.top - self.safeAreaInsets.top - offset), animated: true)
                 @unknown default:
                     print("@unknown default")
                 }
@@ -225,18 +225,18 @@ public class ScrollView: UIScrollView {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) {
             switch scrollToType {
             case .toLeft:
-                let offset = CGPoint(x: -self.contentInset.left, y: 0)
+                let offset = CGPoint(x: -self.contentInset.left - self.safeAreaInsets.left, y: 0)
                 self.setContentOffset(offset, animated: animated)
             case .toRigh:
-                let offset = CGPoint(x: self.contentSize.width - self.bounds.size.width + self.contentInset.right, y: 0)
+                let offset = CGPoint(x: self.contentSize.width - self.bounds.size.width + self.contentInset.right + self.safeAreaInsets.right, y: 0)
                 if offset.x > 0 {
                     self.setContentOffset(offset, animated: animated)
                 }
             case .toTop:
-                let offset = CGPoint(x: 0, y: -self.contentInset.top)
+                let offset = CGPoint(x: 0, y: -self.contentInset.top - self.safeAreaInsets.top)
                 self.setContentOffset(offset, animated: animated)
             case .toBottom:
-                let offset = CGPoint(x: 0, y: self.contentSize.height - self.bounds.size.height + self.contentInset.bottom)
+                let offset = CGPoint(x: 0, y: self.contentSize.height - self.bounds.size.height + self.contentInset.bottom + self.safeAreaInsets.bottom)
                 if offset.y > 0 {
                     self.setContentOffset(offset, animated: animated)
                 }
