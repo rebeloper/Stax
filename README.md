@@ -126,120 +126,301 @@ fileprivate func layoutViews() {
 
 ### 👈.👉 Divider
 
-Dividers are much like `Spacer`s but they have a fixed `width` / `height`. By default this value is `16`. Dividers have two axis: `.vertical`, `.horizontal`. Default axis is `.vertical`. You may also want to use `VDivider` and `HDivider`.
+Dividers are much like `Spacer`s but they have a fixed `width` / `height`. By default this value is `16`. Dividers have two axis: `.vertical`, `.horizontal`. Default axis is `.vertical`. You may also want to use `VDivider` and `HDivider`. 
+Note: `Divider`s ususally do not have a background color. I'm just using `.systemOrange` here so we may see it on screen.
 
 ```
-VStack(
-    Divider().background(color: .systemOrange),
-    Spacer()
-).layout(in: view)
-```
+// MARK: - Views
 
-```
-VStack(
-    Divider(.vertical, 400).background(color: .systemOrange),
-    Spacer()
-).layout(in: view)
-```
+// MARK: - Layout views
 
-```
-VStack(
-    VDivider().background(color: .systemOrange),
-    Spacer()
-).layout(in: view)
+fileprivate func layoutViews() {
+    VStack(
+        Divider().background(color: .systemOrange),
+        Spacer()
+    ).layout(in: view, withSafeArea: true)
+}
 ```
 
 ```
-VStack(
-    VDivider(400).background(color: .systemOrange),
-    Spacer()
-).layout(in: view)
+// MARK: - Views
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    VStack(
+        Divider(.vertical, 400).background(color: .systemOrange),
+        Spacer()
+    ).layout(in: view, withSafeArea: true)
+}
 ```
 
 ```
-HStack(
-    Divider(.horizontal, 400).background(color: .systemOrange),
-    Spacer()
-).layout(in: view)
+// MARK: - Views
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    VStack(
+        VDivider().background(color: .systemOrange),
+        Spacer()
+    ).layout(in: view, withSafeArea: true)
+}
 ```
 
 ```
-HStack(
-    HDivider().background(color: .systemOrange),
-    Spacer()
-).layout(in: view)
+// MARK: - Views
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    VStack(
+        VDivider(400).background(color: .systemOrange),
+        Spacer()
+    ).layout(in: view, withSafeArea: true)
+}
 ```
 
 ```
-HStack(
-    HDivider(400).background(color: .systemOrange),
-    Spacer()
-).layout(in: view)
+// MARK: - Views
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    HStack(
+        Divider(.horizontal).background(color: .systemOrange),
+        Spacer()
+    ).layout(in: view, withSafeArea: true)
+}
 ```
 
-### 👇___ Line
+```
+// MARK: - Views
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    HStack(
+        Divider(.horizontal, 300).background(color: .systemOrange),
+        Spacer()
+    ).layout(in: view, withSafeArea: true)
+}
+```
+
+```
+// MARK: - Views
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    HStack(
+        HDivider().background(color: .systemOrange),
+        Spacer()
+    ).layout(in: view, withSafeArea: true)
+}
+```
+
+```
+// MARK: - Views
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    HStack(
+        HDivider(300).background(color: .systemOrange),
+        Spacer()
+    ).layout(in: view, withSafeArea: true)
+}
+```
+
+### 👇___ Line ( available iOS 13.0+ )
 
 Adding a line in your UI is common. You may add a `Line` with a lot of properties, `VLine` for a vertical line, `HLine` for a horizontal line.
 
 ```
-VStack(
-    VDivider().background(color: .systemOrange),
-    HLine(),
-    VDivider().background(color: .systemOrange),
-    Spacer()
-).layout(in: view)
+// MARK: - Views
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    VStack(
+        VDivider(400).background(color: .systemOrange),
+        HLine(),
+        VDivider().background(color: .systemOrange),
+        Spacer()
+    ).layout(in: view, withSafeArea: true)
+}
 ```
 
 ```
-HStack(
-    HDivider().background(color: .systemOrange),
-    VLine(),
-    HDivider().background(color: .systemOrange),
-    Spacer()
-).layout(in: view)
+// MARK: - Views
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    HStack(
+        HDivider(300).background(color: .systemOrange),
+        VLine(),
+        HDivider().background(color: .systemOrange),
+        Spacer()
+    ).layout(in: view, withSafeArea: true)
+}
 ```
 
 ```
-VStack(
-    VDivider().background(color: .systemOrange),
-    Line(.horizontal, 6, UIColor.black.withAlphaComponent(0.5), insets: UIEdgeInsets(top: 0, left: 48, bottom: 0, right: 48)),
-    VDivider().background(color: .systemOrange),
-    Spacer()
-).layout(in: view)
+// MARK: - Views
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    VStack(
+        VDivider(400).background(color: .systemOrange),
+        Line(.horizontal, 6, UIColor.black.withAlphaComponent(0.5), insets: UIEdgeInsets(top: 0, left: 48, bottom: 0, right: 48)),
+        VDivider().background(color: .systemOrange),
+        Spacer()
+    ).layout(in: view, withSafeArea: true)
+}
 ```
 
 ```
-HStack(
-    HDivider().background(color: .systemOrange),
-    VLine(30, .black, insets: UIEdgeInsets(top: 10, left: 0, bottom: 50, right: 0), withRoundedCorners: false),
-    HDivider().background(color: .systemOrange),
-    Spacer()
-).layout(in: view)
+// MARK: - Views
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    HStack(
+        HDivider(300).background(color: .systemOrange),
+        VLine(30, .black, insets: UIEdgeInsets(top: 10, left: 0, bottom: 50, right: 0), withRoundedCorners: false),
+        HDivider().background(color: .systemOrange),
+        Spacer()
+    ).layout(in: view, withSafeArea: true)
+}
 ```
 
-### 🎨 Background color inside stack
+### 🐞 Debuging
 
-When you build out views with `Stax` you may not properly evaluate where the stack's views are layed out exactly. To make our lives easier we can just simply add background colors.
-
-```
-// UIView
-view1.background(color: .systemOrange)
-```
+We may put a debug view on any of our views. You may initialize any `UIView` with the `staxDebugOptions` property.
 
 ```
-// UIStackView
-VStack(
-    view2,
-    Spacer()
-).background(.systemBlue)
+// MARK: - Views
+
+let view0 = UIView(height: 100, backgroundColor: .systemBlue, staxDebugOptions: StaxDebugOptions())
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    VStack(
+        view0,
+        Spacer()
+    ).layout(in: view, withSafeArea: true)
+}
+```
+
+When you do not want to initialize with `staxDebugOptions` you may debug the view inside the stack.
+
+```
+// MARK: - Views
+
+let view0 = UIView(height: 100, backgroundColor: .systemBlue)
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    VStack(
+        view0.debug(),
+        Spacer()
+    ).layout(in: view, withSafeArea: true)
+}
+```
+
+You may create your own custom debug options.
+
+```
+// MARK: - Custom Debug Options
+let customStaxDebugOptions = StaxDebugOptions(borderWidth: 5, cornerRadius: 0, color: .systemRed, lineWidth: 10, font: .italicSystemFont(ofSize: 30), textColor: .darkGray, textCornerRadius: 15)
+
+// MARK: - Views
+
+lazy var view0 = UIView(height: 300, backgroundColor: .systemBlue, staxDebugOptions: customStaxDebugOptions)
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    VStack(
+        view0,
+        Spacer()
+    ).layout(in: view, withSafeArea: true)
+}
+```
+
+Or use one of the preset ones. Default is `adaptive`. See the diferent `type`s ont both light and dark appearance below.
+
+```
+// MARK: - Views
+
+lazy var view0 = UIView(height: 200, backgroundColor: .systemBlue, staxDebugOptions: StaxDebugOptionsType.dark)
+lazy var view1 = UIView(height: 200, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptionsType.light)
+lazy var view2 = UIView(height: 200, backgroundColor: .systemRed, staxDebugOptions: StaxDebugOptionsType.adaptive)
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    VStack(
+        view0,
+        view1,
+        view2,
+        Spacer()
+    ).layout(in: view, withSafeArea: true)
+}
+```
+
+### 🎨 Background color on views inside stacks, on stacks and on scroll views
+
+When you build out views with `Stax` you may not properly evaluate where the stack's views are layed out exactly. To make our lives easier we can just simply add background colors. We can add a background color to: `UIView`, `UIStackView` and `UIScrollView`.
+
+```
+// MARK: - Views
+
+let view0 = UIView(height: 100, staxDebugOptions: StaxDebugOptions())
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    VStack(
+        view0.background(color: .systemOrange),
+        Spacer()
+    ).layout(in: view, withSafeArea: true)
+}
 ```
 
 ```
-// UIScrollView
-VStack(
-    Spacer()
-).scrolls(.vertical)
-.background(.systemGreen)
+// MARK: - Views
+
+let view0 = UIView(height: 100, staxDebugOptions: StaxDebugOptions())
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    VStack(
+        view0.background(color: .systemOrange),
+        Spacer()
+    ).background(.systemBlue).layout(in: view, withSafeArea: true)
+}
+```
+
+```
+// MARK: - Views
+
+let view0 = UIView(height: 100, staxDebugOptions: StaxDebugOptions())
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    VStack(
+        view0.background(color: .systemOrange),
+        Spacer()
+    ).scrolls().background(.systemGreen).layout(in: view, withSafeArea: true)
+}
 ```
 
 ### 🍩 Centering
