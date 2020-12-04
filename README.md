@@ -34,6 +34,37 @@ Download and include the `Stax` folder and files in your codebase.
 - [X] 100% Documented.
 
 ## 🛠 How To Use
+### Before we begin
+
+This UIViewController structure is assumed in the following examples
+
+```
+import UIKit
+import Stax
+
+class ExampleViewController: UIViewController {
+    
+    // MARK: - Views
+    
+    // MARK: - Layout views
+    
+    fileprivate func layoutViews() {
+        
+    }
+    
+    // MARK: - Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemBackground
+        title = "Stax"
+        layoutViews()
+    }
+}
+```
+
+In the examples below we will cover the code that is marked as **Views** and **Layout views**
+
 ### 👉 Import
 
 Import `Stax` into your `ViewController`
@@ -49,41 +80,48 @@ import Stax
 ### 📏 Size
 
 ```
-lazy var view0 = UIView(backgroundColor: .systemRed).width(self.view.frame.size.width)
-let view1 = UIView(backgroundColor: .systemRed).width(600)
-let view2 = UIView(backgroundColor: .systemRed).height(600)
-let view3 = UIView(backgroundColor: .systemRed).square(100)
+let view0 = UIView(width: 100)
+let view1 = UIView(height: 100)
+let view2 = UIView(width: 100, height: 200)
+let view3 = UIView(square: 100)
+lazy var view4 = UIView(width: self.view.frame.size.width)
 ```
 
-Note: if we want to get acces to `self` when we create these views they must be `lazy var`. Also take a look at the "cool" new way to initialize a `UIView` with a background color.
+Note: if we want to get acces to `self` when we create these views they must be `lazy var`.
 
-Here are the views that we are going to use in this tutorial:
+### 🎨 Background color
+
+We may also add background color within the initialization of any `UIView`. Helpful when laying out views quickly. This way we see the frame of the views in an easy tweak. All types of previously listed initializations have this optional property. Default value is `.clear`.
 
 ```
-lazy var view1 = UIView(backgroundColor: .systemYellow).width(self.view.frame.size.width)
-lazy var view2 = UIView(backgroundColor: .systemTeal).size(width: self.view.frame.size.width, height: 600)
-lazy var view3 = UIView(backgroundColor: .systemRed).width(self.view.frame.size.width)
-let view4 = UIView(backgroundColor: .systemRed).height(600)
-let view5 = UIView(backgroundColor: .systemYellow).square(100)
-let view6 = UIView(backgroundColor: .systemTeal).square(100)
-let view7 = UIView(backgroundColor: .systemGray).square(100)
-let view8 = UIView(backgroundColor: .systemPink).height(150)
-let view9 = UIView(backgroundColor: .systemGray2).square(150)
-let view10 = UIView(backgroundColor: .systemGray5).square(150)
-let view11 = UIView(backgroundColor: .systemGray5).height(50)
-let view12 = UIView(backgroundColor: .systemGray4).height(50)
-let view13 = UIView(backgroundColor: .systemGray3).height(50)
+let view0 = UIView(width: 100, backgroundColor: .systemBlue)
 ```
+
+Adding a background color to or view to debug our layout is common practice, but `Stax` has something more powerfull: `StaxDebugOptions`. When added as a property to a `UIView` you will see a debug layer on top of your view. Default value is `nil` which will not add any debug layer.
+
+```
+let view0 = UIView(width: 100, staxDebugOptions: StaxDebugOptions())
+```
+
+We will talk more in detail about `StaxDebugOptions` below when we will show them inside a stack.
 
 ### 👈.....👉 Spacer
 
 Since `UIStackView` is a pull-in view we will need a push-out view in order to use them more efficiently. This is where `Spacer` comes in. It is an empty `UIView` that can push views. Here's an example of a `Spacer` pushing `view2` to the top in this `VStack` layed out in the view controller's `view`. (Don't worry about understanding the stack or the layout. We'll talk about them soon enough.)
 
 ```
-VStack(
-    view2,
-    Spacer()
-).layout(in: view)
+// MARK: - Views
+
+let view0 = UIView(height: 100, backgroundColor: .systemBlue, staxDebugOptions: StaxDebugOptions())
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    VStack(
+        view0,
+        Spacer()
+    ).layout(in: view, withSafeArea: true)
+}
 ```
 
 ### 👈.👉 Divider
@@ -179,7 +217,7 @@ HStack(
 ).layout(in: view)
 ```
 
-### 🎨 Background color
+### 🎨 Background color inside stack
 
 When you build out views with `Stax` you may not properly evaluate where the stack's views are layed out exactly. To make our lives easier we can just simply add background colors.
 

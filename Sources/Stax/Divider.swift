@@ -19,9 +19,9 @@ public class Divider: UIView {
         super.init(frame: .zero)
         switch axis {
         case .horizontal:
-            self.height(length)
-        case .vertical:
             self.width(length)
+        case .vertical:
+            self.height(length)
         @unknown default:
             print("@unknown default")
         }
