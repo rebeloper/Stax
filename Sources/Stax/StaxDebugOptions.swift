@@ -7,8 +7,10 @@
 
 import UIKit
 
+/// Stax Debug Options
 @available(iOS 13.0, *)
 public struct StaxDebugOptions {
+    
     let borderWidth: CGFloat
     let cornerRadius: CGFloat
     let color: UIColor
@@ -17,6 +19,15 @@ public struct StaxDebugOptions {
     let textColor: UIColor
     let textCornerRadius: CGFloat
     
+    /// Stax Debug Options
+    /// - Parameters:
+    ///   - borderWidth: borderWidth
+    ///   - cornerRadius: cornerRadius
+    ///   - color: color
+    ///   - lineWidth: lineWidth
+    ///   - font: font
+    ///   - textColor: textColor
+    ///   - textCornerRadius: textCornerRadius
     public init(borderWidth: CGFloat = 2, cornerRadius: CGFloat = 10, color: UIColor = .label, lineWidth: CGFloat = 2, font: UIFont = .monospacedSystemFont(ofSize: 12.5, weight: .medium), textColor: UIColor = .systemGroupedBackground, textCornerRadius: CGFloat = 5) {
         self.borderWidth = borderWidth
         self.cornerRadius = cornerRadius

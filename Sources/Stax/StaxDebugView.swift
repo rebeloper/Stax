@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Stax Debug View
 @available(iOS 13.0, *)
 public class StaxDebugView: UIView {
     
@@ -16,6 +17,10 @@ public class StaxDebugView: UIView {
     private let label = UILabel()
     private var lineWidth: CGFloat!
     
+    /// Initializes a Stax debug view
+    /// - Parameters:
+    ///   - backgroundColor: backgroundColor
+    ///   - options: options
     public init(backgroundColor: UIColor = .clear, options: StaxDebugOptions = StaxDebugOptionsType.adaptive) {
         super.init(frame: .zero)
         self.backgroundColor = backgroundColor
@@ -43,7 +48,6 @@ public class StaxDebugView: UIView {
     public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     public override func layoutSubviews() {
         label.text = " \(Int(self.frame.width)) x \(Int(self.frame.height)) "

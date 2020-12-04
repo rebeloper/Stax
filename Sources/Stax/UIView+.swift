@@ -306,13 +306,6 @@ extension UIView {
         return centerInSuperview(size: size, offset: offset)
     }
     
-    /// Convenience init with background color
-    /// - Parameter backgroundColor: color
-    convenience public init(backgroundColor: UIColor = .clear) {
-        self.init(frame: .zero)
-        self.backgroundColor = backgroundColor
-    }
-    
     /// Hides the view with an optional delay and animation
     /// - Parameters:
     ///   - delay: delay
@@ -347,17 +340,23 @@ extension UIView {
 @available(iOS 13.0, *)
 extension UIView {
     
-    @discardableResult
-    public func debug<T: UIView>(_ options: StaxDebugOptions = StaxDebugOptionsType.adaptive) -> T {
-        let debugView = StaxDebugView(options: options)
-        self.addSubview(debugView)
-        debugView.fillSuperview()
-        self.layer.cornerRadius = options.cornerRadius
-        self.layer.masksToBounds = true
-        return self as! T
+    /// Convenience init with optional background color and staxDebugOptions
+    /// - Parameter backgroundColor: color
+    convenience public init(backgroundColor: UIColor = .clear, staxDebugOptions: StaxDebugOptions? = nil) {
+        self.init(frame: .zero)
+        self.backgroundColor = backgroundColor
+        if staxDebugOptions != nil {
+            self.debug(staxDebugOptions!)
+        }
     }
     
-    convenience public init(backgroundColor: UIColor = .clear, width: CGFloat? = nil, height: CGFloat? = nil, staxDebugOptions: StaxDebugOptions? = nil) {
+    /// Convenience init with optional width, height, backgroundColor and staxDebugOptions
+    /// - Parameters:
+    ///   - width: width
+    ///   - height: height height
+    ///   - backgroundColor: backgroundColor
+    ///   - staxDebugOptions: staxDebugOptions
+    convenience public init(width: CGFloat? = nil, height: CGFloat? = nil, backgroundColor: UIColor = .clear, staxDebugOptions: StaxDebugOptions? = nil) {
         self.init(frame: .zero)
         self.backgroundColor = backgroundColor
         if let width = width, height == nil {
@@ -372,13 +371,59 @@ extension UIView {
         }
     }
     
-    convenience public init(backgroundColor: UIColor = .clear, square: CGFloat, staxDebugOptions: StaxDebugOptions? = nil) {
+    /// Convenience init with width, optional backgroundColor and staxDebugOptions
+    /// - Parameters:
+    ///   - width: width
+    ///   - backgroundColor: backgroundColor
+    ///   - staxDebugOptions: staxDebugOptions
+    convenience public init(width: CGFloat, backgroundColor: UIColor = .clear, staxDebugOptions: StaxDebugOptions? = nil) {
+        self.init(frame: .zero)
+        self.backgroundColor = backgroundColor
+        self.width(width)
+        if staxDebugOptions != nil {
+            self.debug(staxDebugOptions!)
+        }
+    }
+    
+    /// Convenience init with height, optional backgroundColor and staxDebugOptions
+    /// - Parameters:
+    ///   - height: height
+    ///   - backgroundColor: backgroundColor
+    ///   - staxDebugOptions: staxDebugOptions
+    convenience public init(height: CGFloat, backgroundColor: UIColor = .clear, staxDebugOptions: StaxDebugOptions? = nil) {
+        self.init(frame: .zero)
+        self.backgroundColor = backgroundColor
+        self.height(height)
+        if staxDebugOptions != nil {
+            self.debug(staxDebugOptions!)
+        }
+    }
+    
+    /// Convenience init with square side length, optional backgroundColor and staxDebugOptions
+    /// - Parameters:
+    ///   - square: square
+    ///   - backgroundColor: backgroundColor
+    ///   - staxDebugOptions: staxDebugOptions
+    convenience public init(square: CGFloat, backgroundColor: UIColor = .clear, staxDebugOptions: StaxDebugOptions? = nil) {
         self.init(frame: .zero)
         self.backgroundColor = backgroundColor
         self.square(square)
         if staxDebugOptions != nil {
             self.debug(staxDebugOptions!)
         }
+    }
+    
+    /// Debugs the view
+    /// - Parameter options: options
+    /// - Returns: view
+    @discardableResult
+    public func debug<T: UIView>(_ options: StaxDebugOptions = StaxDebugOptionsType.adaptive) -> T {
+        let debugView = StaxDebugView(options: options)
+        self.addSubview(debugView)
+        debugView.fillSuperview()
+        self.layer.cornerRadius = options.cornerRadius
+        self.layer.masksToBounds = true
+        return self as! T
     }
 }
 

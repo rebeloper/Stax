@@ -8,7 +8,7 @@
 import UIKit
 
 /// Divider view
-@available(iOS 11.0, *)
+@available(iOS 13.0, *)
 public class Line: UIView {
     
     /// Creates a line view. Default `axis` is `.vertical`; `length` is `1`; `backgroundColor` is `.systemGray`; `insets` is `.zero`; `withRoundedCorners` is `true`
@@ -47,7 +47,7 @@ public class Line: UIView {
 }
 
 /// Vertical Divider view
-@available(iOS 11.0, *)
+@available(iOS 13.0, *)
 public class VLine: UIView {
     
     /// Creates a vertical line view. Default `length` is `1`; `backgroundColor` is `.systemGray`; `insets` is `UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)`; `withRoundedCorners` is `true`
@@ -75,7 +75,7 @@ public class VLine: UIView {
 }
 
 /// Horizontal Divider view
-@available(iOS 11.0, *)
+@available(iOS 13.0, *)
 public class HLine: UIView {
     
     /// Creates a horizontal line view. Default `length` is `1`; `backgroundColor` is `.systemGray`; `insets` is `UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)`; `withRoundedCorners` is `true`
