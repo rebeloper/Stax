@@ -423,24 +423,67 @@ fileprivate func layoutViews() {
 }
 ```
 
-### 🍩 Centering
+### 🍩 Centering 
 
-The second most important part in laying out UI in `Stax` besides stacking is centering a view inside a parent view. Centering has to be done outside of the main stack. See the example view controller below.
-
-```
-// center a view inside a view
-view7.center(in: view4, offset: CGPoint(x: -50, y: -50))
-```
+The second most important part in laying out UI in `Stax` besides stacking is **centering** a view inside a parent view. Centering has to be done outside of the main stack. See the example view controller below.
 
 ```
-// center a Stack inside a view
-HStack(view5, view6).center(inside: view, offset: CGPoint.right(50))
+// MARK: - Views
+
+let view0 = UIView(height: 400, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
+let view1 = UIView(backgroundColor: .systemBlue, staxDebugOptions: StaxDebugOptions())
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    
+    view1.center(in: view0, size: .square(100), offset: CGPoint(x: 70, y: 80))
+    
+    VStack(
+        view0,
+        Spacer()
+    ).layout(in: view, withSafeArea: true)
+}
 ```
 
 ```
-// center a Scrolling Stack (Scroll View) inside a view
-// this time we need to set the size of the scroll view's container view
-HStack(view5, view6).scrolls(.horizontal).center(inside: view, size: CGSize(width: 100, height: 100))
+// MARK: - Views
+
+let view0 = UIView(height: 400, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
+let view1 = UIView(width: 100, backgroundColor: .systemBlue, staxDebugOptions: StaxDebugOptions())
+let view2 = UIView(width: 100, backgroundColor: .systemGreen, staxDebugOptions: StaxDebugOptions())
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    
+    HStack(view1, view2).center(in: view0, size: CGSize(width: 200, height: 100), offset: CGPoint(x: 70, y: 80))
+    
+    VStack(
+        view0,
+        Spacer()
+    ).layout(in: view, withSafeArea: true)
+}
+```
+
+```
+// MARK: - Views
+
+let view0 = UIView(height: 400, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
+let view1 = UIView(width: 100, backgroundColor: .systemBlue, staxDebugOptions: StaxDebugOptions())
+let view2 = UIView(width: 100, backgroundColor: .systemGreen, staxDebugOptions: StaxDebugOptions())
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    
+    HStack(view1, view2).scrolls(.horizontal).center(in: view0, size: .square(100), offset: CGPoint(x: 70, y: 80))
+    
+    VStack(
+        view0,
+        Spacer()
+    ).layout(in: view, withSafeArea: true)
+}
 ```
 
 ### 🍔 Stacks
