@@ -12,7 +12,7 @@ https://github.com/rebeloper/Stax.git
 Download and include the `Stax` folder and files in your codebase.
 
 ### 📲 Requirements
-- iOS 11
+- iOS 11 (some optional features iOS13+)
 - Swift 5
 
 ## 👑 Concept
@@ -97,7 +97,7 @@ We may also add background color within the initialization of any `UIView`. Help
 let view0 = UIView(width: 100, backgroundColor: .systemBlue)
 ```
 
-Adding a background color to or view to debug our layout is common practice, but `Stax` has something more powerfull: `StaxDebugOptions`. When added as a property to a `UIView` you will see a debug layer on top of your view. Default value is `nil` which will not add any debug layer.
+Adding a background color to or view to debug our layout is common practice, but `Stax` has something more powerfull: `StaxDebugOptions`. When added as a property to a `UIView` you will see a debug layer on top of your view. Default value is `nil` which will not add any debug layer. `StaxDebugOptions` is available on iOS13+.
 
 ```
 let view0 = UIView(width: 100, staxDebugOptions: StaxDebugOptions())
@@ -959,7 +959,7 @@ fileprivate func layoutViews() {
 }
 ```
 
-### 📱 Change size of a stacked view
+### 🧪 Change size of a stacked view
 
 You may change a view size after the stack has been set. You may animate this change by adding the root view to the `animatedInRootView` property.
 
