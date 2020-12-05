@@ -787,7 +787,7 @@ fileprivate func layoutViews() {
 
 ### 🦾 Auto-scrolling
 
-We can also automatically scroll to a specific view. You might want to delay the scroll by `0.05` when you are scrolling upon initializing the view controller. Default `delay` is `0`. Default `animated` is `true`. You must specifiy the `axis` of the scroll.
+We can also automatically scroll to a specific view. You might want to delay the scroll by `0.05` when you are scrolling upon initializing the view controller. Default `delay` is `0`. Default `animated` is `true`. You must specifiy the `axis` of the scroll. You may also set an optional offset too.
 
 ```
 // MARK: - Views
@@ -905,32 +905,89 @@ Note:
 You might want to access the main stack later on in the lifecycle of the app. Till now we added our main stack in the `viewDidLoad()` but you may also declare it as a `lazy var`. So now you can acces it in the whoe view controller.
 
 ```
+// MARK: - Views
+
+lazy var view0 = UIView(height: 300, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
+lazy var view1 = UIView(height: 300, backgroundColor: .systemBlue, staxDebugOptions: StaxDebugOptions())
+lazy var view2 = UIView(height: 300, backgroundColor: .systemRed, staxDebugOptions: StaxDebugOptions())
+
 lazy var ui =
     VStack(
-        ...
-    ).layout(in: view, withSafeArea: true)
-    
-...
+        view0,
+        view1,
+        view2,
+        Spacer()
+    ).scrolls()
 
-override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any additional setup after loading the view.
-    
-    ui.scroll(to: view6, axis: .vertical, offset: 20, delay: 0.5)
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    ui.layout(in: view).scroll(to: view1, axis: .vertical, offset: 50, delay: 2, animated: true)
 }
 ```
+
+Note: the `layout(in:)` has to be called in the `layoutViews()` 
 
 ### 👁 Show / Hide Views
 
 We may show/hide views with an optional delay and animation. The default `delay` is `0`. Default animation is set to `true`. Can be set to any view that inherits from `UIView`.
 
 ```
-view11.hide()
+// MARK: - Views
 
-view11.show()
+lazy var view0 = UIView(height: 300, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
+lazy var view1 = UIView(height: 300, backgroundColor: .systemBlue, staxDebugOptions: StaxDebugOptions())
+lazy var view2 = UIView(height: 300, backgroundColor: .systemRed, staxDebugOptions: StaxDebugOptions())
 
-view11.hide(after: 8)
-view11.show(after: 9, animated: false)
+lazy var ui =
+    VStack(
+        view0,
+        view1,
+        view2,
+        Spacer()
+    ).scrolls()
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    ui.layout(in: view)
+    
+    view1.hide() // instant; you will not notice hiding the view
+    view1.show() // instant; you will not notice showing the view
+    view1.hide(after: 1)
+    view1.show(after: 2, animated: false)
+}
+```
+
+### 📱 Change size of a stacked view
+
+You may change a view size after the stack has been set. You may animate this change by adding the root view to the `animatedInRootView` property.
+
+```
+// MARK: - Views
+
+lazy var view0 = UIView(height: 300, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
+lazy var view1 = UIView(height: 300, backgroundColor: .systemBlue, staxDebugOptions: StaxDebugOptions())
+lazy var view2 = UIView(height: 300, backgroundColor: .systemRed, staxDebugOptions: StaxDebugOptions())
+
+lazy var ui =
+    VStack(
+        view0,
+        view1,
+        view2,
+        Spacer()
+    ).scrolls()
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    ui.layout(in: view)
+    
+    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+        self.view1.height(100/*, animatedInRootView: self.view*/)
+    }
+    
+}
 ```
 
 ### 📱 Example
@@ -943,64 +1000,82 @@ import Stax
 
 class ViewController: UIViewController {
     
-    lazy var view1 = UIView(backgroundColor: .systemYellow).width(self.view.frame.size.width)
-    lazy var view2 = UIView(backgroundColor: .systemTeal).size(width: self.view.frame.size.width, height: 600)
-    lazy var view3 = UIView(backgroundColor: .systemRed).width(self.view.frame.size.width)
-    let view4 = UIView(backgroundColor: .systemRed).height(600)
-    let view5 = UIView(backgroundColor: .systemYellow).square(100)
-    let view6 = UIView(backgroundColor: .systemTeal).square(100)
-    let view7 = UIView(backgroundColor: .systemGray).square(100)
-    let view8 = UIView(backgroundColor: .systemPink).height(150)
-    let view9 = UIView(backgroundColor: .systemGray2).square(150)
-    let view10 = UIView(backgroundColor: .systemGray5).square(150)
-    let view11 = UIView(backgroundColor: .systemGray5).height(50)
-    let view12 = UIView(backgroundColor: .systemGray4).height(50)
-    let view13 = UIView(backgroundColor: .systemGray3).height(50)
+    let customStaxDebugOptions = StaxDebugOptions(borderWidth: 5, cornerRadius: 0, color: .systemRed, lineWidth: 10, font: .italicSystemFont(ofSize: 30), textColor: .darkGray, textCornerRadius: 15)
+    
+    lazy var view1 = UIView(width: self.view.frame.size.width, backgroundColor: .systemYellow, staxDebugOptions: StaxDebugOptions())
+    lazy var view2 = UIView(backgroundColor: .systemTeal, staxDebugOptions: customStaxDebugOptions)
+    lazy var view3 = UIView(width: self.view.frame.size.width, backgroundColor: .systemRed)
+    let view4 = UIView(height: 600, backgroundColor: .systemRed, staxDebugOptions: StaxDebugOptions())
+    let view5 = UIView(square: 100, backgroundColor: .systemYellow, staxDebugOptions: StaxDebugOptions())
+    let view6 = UIView(square: 100, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
+    let view7 = UIView(square: 100, backgroundColor: .systemGray, staxDebugOptions: StaxDebugOptions())
+    let view8 = UIView(height: 150, backgroundColor: .systemPink, staxDebugOptions: StaxDebugOptions())
+    let view9 = UIView(square: 150, backgroundColor: .systemGray2, staxDebugOptions: StaxDebugOptions())
+    let view10 = UIView(square: 150, backgroundColor: .systemGray5, staxDebugOptions: StaxDebugOptions())
+    let view11 = UIView(height: 50, backgroundColor: .systemGray5, staxDebugOptions: StaxDebugOptionsType.dark)
+    let view12 = UIView(height: 50, backgroundColor: .systemGray4, staxDebugOptions: StaxDebugOptionsType.light)
+    let view13 = UIView(height: 50, backgroundColor: .systemGray3, staxDebugOptions: StaxDebugOptionsType.adaptive)
     
     lazy var ui =
         VStack(
-            HStack(view1, view2, view3).scrolls(.horizontal).padding(.horizontal, 100).pages(),
+            HStack(view1,
+                   view2.size(width: self.view.frame.size.width, height: 600),
+                   view3.debug()).scrolls(.horizontal).padding(.horizontal, 100).pages(),
             HLine(),
-            VStack(view4).background(.systemBlue).padding(.vertical, 200),
-            HStack(view9, VLine(30, .black, insets: UIEdgeInsets(top: 10, left: 0, bottom: 50, right: 0), withRoundedCorners: false), Spacer(), view10),
-            Line(.horizontal, 6, UIColor.black.withAlphaComponent(0.5), insets: UIEdgeInsets(top: 0, left: 48, bottom: 0, right: 48)),
-            view8,
-            VStack(view11, view12, view13).spacing(),
-            Divider(.vertical, 400).background(color: .systemOrange)
+            VStack(
+                VStack(view4).background(.systemBlue).padding(.vertical, 200),
+                HStack(view9, VLine(30, .black, insets: UIEdgeInsets(top: 10, left: 0, bottom: 50, right: 0), withRoundedCorners: false), Spacer(), view10),
+                Line(.horizontal, 6, UIColor.black.withAlphaComponent(0.5), insets: UIEdgeInsets(top: 0, left: 48, bottom: 0, right: 48)),
+                view8,
+                VStack(view11, view12, view13).spacing(),
+                Divider(.vertical, 400).background(color: .systemOrange)
+            ).spacing(12).padding(.horizontal, 12)
         ).spacing(12)
         //        .axis(.vertical)
         //        .alignment(.fill)
         //        .distribution(.fill)
         .scrolls(.vertical)
-        .background(color: .systemGreen)
+        .background(.systemBackground)
         .padding(.bottom, 50)
-        .layout(in: view, withSafeArea: true)
     
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        view.backgroundColor = .white
+    fileprivate func layoutViews() {
         
         HStack(view5, view6)
-            .background(.systemGray)
+            .background(.systemBlue)
             .scrolls(.horizontal)
             .hidesScrollIndicator()
             .scroll(to: view6, axis: .horizontal, delay: 2)
             .scroll(.toLeft, delay: 3)
             .center(inside: view4, size: CGSize(width: 100, height: 100), offset: CGPoint.right(100))
 
-        view7.center(in: view4, offset: CGPoint(x: -50, y: -50))
+        view7.center(in: view4, offset: CGPoint(x: -80, y: -160))
 
-        ui.scroll(to: view6, axis: .vertical, offset: 20, delay: 0.5)
+        ui.layout(in: view, withSafeArea: false)
+            .scroll(to: view6, axis: .vertical, offset: 20, delay: 0.5)
             .scroll(.toTop, delay: 5, animated: false)
             .scroll(.toBottom, delay: 7)
+            .scroll(.toTop, delay: 11)
+
+        view11.hide(after: 9)
+        view11.show(after: 10, animated: false)
         
-        view11.hide(after: 8)
-        view11.show(after: 9, animated: false)
-        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 13) {
+            self.view1.height(300, animatedInRootView: self.view)
+        }
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 15) {
+            self.view7.height(30, animatedInRootView: self.view)
+        }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        view.backgroundColor = .systemBackground
+        title = "Stax"
+        layoutViews()
     }
 }
+
 ```
 
 ## ✍️ Contact
