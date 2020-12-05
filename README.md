@@ -488,35 +488,106 @@ fileprivate func layoutViews() {
 
 ### 🍔 Stacks
 
-There are two type of Stacks in `Stax`: `VStack` and `HStack` (Vertical Stack and Horizontal Stack).
+There are two types of Stacks in `Stax`: `VStack` and `HStack` (Vertical Stack and Horizontal Stack).
 The way we add a stack onto any view is laying it with `layout(in:)`. Usually this is done only once with the main Stack layed out in the view controller's view. You may also lay out with taking the safe area into acount.
 
 ```
-VStack(
-    view2,
-    view4,
-    Spacer()
-).layout(in: view)
+// MARK: - Views
+
+let view0 = UIView(height: 200, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
+let view1 = UIView(height: 200, backgroundColor: .systemBlue, staxDebugOptions: StaxDebugOptions())
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    
+    VStack(
+        Spacer(),
+        view0,
+        view1
+    ).layout(in: view)
+}
 ```
 
 ```
-HStack(
-    view2,
-    Spacer(),
-    view1
-).layout(in: view, withSafeArea: true)
+// MARK: - Views
+
+let view0 = UIView(height: 200, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
+let view1 = UIView(height: 200, backgroundColor: .systemBlue, staxDebugOptions: StaxDebugOptions())
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    
+    VStack(
+        Spacer(),
+        view0,
+        view1
+    ).layout(in: view, withSafeArea: true)
+}
 ```
 
-Note: `view2` has a `size` set. The `Spacer` in the `HStack` is pushing the two views out to the sides of the screen.
+```
+// MARK: - Views
+
+let view0 = UIView(width: 200, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
+let view1 = UIView(width: 200, backgroundColor: .systemBlue, staxDebugOptions: StaxDebugOptions())
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    
+    HStack(
+        Spacer(),
+        view0,
+        view1
+    ).layout(in: view)
+}
+```
+
+```
+// MARK: - Views
+
+let view0 = UIView(width: 200, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
+let view1 = UIView(width: 200, backgroundColor: .systemBlue, staxDebugOptions: StaxDebugOptions())
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    
+    HStack(
+        Spacer(),
+        view0,
+        view1
+    ).layout(in: view, withSafeArea: true)
+}
+```
+
+Note: The `Spacer` is pushing the two views out to the sides of the container view.
 
 You can have stacks within stacks.
 
 ```
-VStack(
-    HStack(view1, view2, view3)
-    VStack(view11, view12, view13),
-    VDivider(4).background(color: .systemOrange)
-).layout(in: view)
+// MARK: - Views
+
+let view0 = UIView(square: 150, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
+let view1 = UIView(width: 100, backgroundColor: .systemBlue, staxDebugOptions: StaxDebugOptions())
+let view2 = UIView(height: 200, backgroundColor: .systemGreen, staxDebugOptions: StaxDebugOptions())
+let view3 = UIView(height: 170, backgroundColor: .systemYellow, staxDebugOptions: StaxDebugOptions())
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    
+    VStack(
+        HStack(view0,
+               view1,
+               Spacer()),
+        VStack(view2,
+               view3),
+        Spacer()
+    ).layout(in: view, withSafeArea: true)
+}
 ```
 
 ### 📜 Scrolling
@@ -524,83 +595,163 @@ VStack(
 You can enable scrolling with one line.
 
 ```
-VStack(
-    HStack(view1, view2, view3)
-    VStack(view11, view12, view13),
-    VDivider(400).background(color: .systemOrange)
-).scrolls(.vertical).layout(in: view)
+// MARK: - Views
 
-VStack(
-    HStack(view1, view2, view3)
-    VStack(view11, view12, view13),
-    VDivider(400).background(color: .systemOrange)
-).scrolls().layout(in: view) // the default value of scrolls is .vertical
+let view0 = UIView(square: 150, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
+let view1 = UIView(width: 500, backgroundColor: .systemBlue, staxDebugOptions: StaxDebugOptions())
+let view2 = UIView(height: 200, backgroundColor: .systemGreen, staxDebugOptions: StaxDebugOptions())
+let view3 = UIView(height: 500, backgroundColor: .systemYellow, staxDebugOptions: StaxDebugOptions())
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    
+    VStack(
+        HStack(view0,
+               view1,
+               Spacer()).scrolls(.horizontal),
+        VStack(view2,
+               view3),
+        Spacer()
+    ).scrolls().layout(in: view)
+}
 ```
 
-```
-HStack(
-    view2,
-    HDivider(400).background(color: .systemOrange),
-    view1
-).scrolls(.horizontal).layout(in: view)
-```
+Notes: 
+- The defalyt value is `.vertical`. 
+- We can remove the safe area property from `layout(in:)` because the navigation bar will push the main stack to the tab bar's bottom. When a Tab bar is also added it will also behave as the navigation bar pushin gthe stack to the top of the tab bar. Of course, you may leave the safe area property if that is needed for your specific layout. 
+- Notice the `Spacer()`s. This is left here because your layput may be viewed on displays with a `width`/`height` larger than the Stacks' `width`/`height`. In this case the `ScrollView` will act as a `StackView`.
 
 ### 👉👈 Spacing
 
-Spacing between the stack elements is also simple.
+Spacing between the stack elements is also simple. Default value is `8`.
 
 ```
-// sets a default spacing of 8
-VStack(view11, view12, view13).spacing()
+// MARK: - Views
+
+let view0 = UIView(height: 150, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
+let view1 = UIView(height: 50, backgroundColor: .systemBlue, staxDebugOptions: StaxDebugOptions())
+let view2 = UIView(height: 100, backgroundColor: .systemGreen, staxDebugOptions: StaxDebugOptions())
+let view3 = UIView(height: 150, backgroundColor: .systemYellow, staxDebugOptions: StaxDebugOptions())
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    
+    VStack(
+        view0,
+        view1,
+        view2,
+        view3,
+        Spacer()
+    ).spacing().scrolls().layout(in: view)
+}
 ```
 
 ```
-// sets a spacing of 25
-VStack(view11, view12, view13).spacing(25)
+// MARK: - Views
+
+let view0 = UIView(height: 150, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
+let view1 = UIView(height: 50, backgroundColor: .systemBlue, staxDebugOptions: StaxDebugOptions())
+let view2 = UIView(height: 100, backgroundColor: .systemGreen, staxDebugOptions: StaxDebugOptions())
+let view3 = UIView(height: 150, backgroundColor: .systemYellow, staxDebugOptions: StaxDebugOptions())
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    
+    VStack(
+        view0,
+        view1,
+        view2,
+        view3,
+        Spacer()
+    ).spacing(36).scrolls().layout(in: view)
+}
 ```
 
 ### 🌅 Padding
 
-Padding can be added to any `Stack` or `ScrollView`.
+Padding can be added to both `Stack` and `ScrollView`. Default value is `8`.
 
 ```
-// sets a default padding of 8 to all sides of the Stack
-VStack(
-    view2,
-    Spacer()
-)/*.scrolls()*/.padding()
-```
+// MARK: - Views
 
-```
-// sets a padding of 12 to all sides of the Stack
-VStack(
-    view2,
-    Spacer()
-)/*.scrolls()*/.padding(by: 12)
-```
+let view0 = UIView(height: 150, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
 
-```
-// sets a padding with an UIEdgeInsets
-VStack(
-    view2,
-    Spacer()
-)/*.scrolls()*/.padding(UIEdgeInsets(top: 12, left: 24, bottom: 0, right: 24))
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    
+    VStack(
+        view0,
+        Spacer()
+    )/*.scrolls()*/.padding().layout(in: view)
+}
 ```
 
 ```
-// sets a default top padding of 8; options are available for all sides of the Stack
-VStack(
-    view2,
-    Spacer()
-)/*.scrolls()*/.padding(.top)
+// MARK: - Views
+
+let view0 = UIView(height: 150, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    
+    VStack(
+        view0,
+        Spacer()
+    )/*.scrolls()*/.padding(by: 36).layout(in: view)
+}
 ```
 
 ```
-// sets a bottom padding of 24; options are available for all sides of the Stack
-VStack(
-    view2,
-    Spacer()
-)/*.scrolls()*/.padding(.bottom, 24)
+// MARK: - Views
+
+let view0 = UIView(height: 150, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    
+    VStack(
+        view0,
+        Spacer()
+    )/*.scrolls()*/.padding(UIEdgeInsets(top: 36, left: 24, bottom: 0, right: 12)).layout(in: view)
+}
+```
+
+```
+// MARK: - Views
+
+let view0 = UIView(height: 150, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    
+    VStack(
+        view0,
+        Spacer()
+    )/*.scrolls()*/.padding(.top).layout(in: view)
+}
+```
+
+```
+// MARK: - Views
+
+let view0 = UIView(height: 150, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    
+    VStack(
+        view0,
+        Spacer()
+    )/*.scrolls()*/.padding(.top, 36).layout(in: view)
+}
 ```
 
 ### ⚙️ Scrolling Options
@@ -608,17 +759,30 @@ VStack(
 We can set basic options on the `ScrollView`:
 
 ```
-// paging; make sure all view widths have the screen width
-HStack(view1, view2, view3).scrolls(.horizontal).pages()
+// MARK: - Views
 
-// hide the scroll indicator
-HStack(view1, view2, view3).scrolls(.horizontal).hidesScrollIndicator()
+lazy var view0 = UIView(square: self.view.frame.width, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
+lazy var view1 = UIView(width: self.view.frame.width, backgroundColor: .systemBlue, staxDebugOptions: StaxDebugOptions())
+lazy var view2 = UIView(width: self.view.frame.width, backgroundColor: .systemRed, staxDebugOptions: StaxDebugOptions())
 
-// show the scroll indicator
-HStack(view1, view2, view3).scrolls(.horizontal).showsScrollIndicator()
+// MARK: - Layout views
 
-// bounces
-HStack(view1, view2, view3).scrolls(.horizontal).bounces(false)
+fileprivate func layoutViews() {
+    VStack(
+        HStack(
+            view0,
+            view1,
+            view2,
+            Spacer()
+        ).scrolls(.horizontal)
+        .pages()
+        .hidesScrollIndicator()
+//            .showsScrollIndicator()
+        .bounces(false)
+        .height(self.view.frame.width),
+        Spacer()
+    ).scrolls().layout(in: view)
+}
 ```
 
 ### 🦾 Auto-scrolling
@@ -626,39 +790,115 @@ HStack(view1, view2, view3).scrolls(.horizontal).bounces(false)
 We can also automatically scroll to a specific view. You might want to delay the scroll by `0.05` when you are scrolling upon initializing the view controller. Default `delay` is `0`. Default `animated` is `true`. You must specifiy the `axis` of the scroll.
 
 ```
-HStack(view5, view6)
-    .scrolls(.horizontal)
-    .scroll(to: view6, axis: .horizontal, delay: 2)
+// MARK: - Views
+
+lazy var view0 = UIView(square: self.view.frame.width, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
+lazy var view1 = UIView(width: self.view.frame.width, backgroundColor: .systemBlue, staxDebugOptions: StaxDebugOptions())
+lazy var view2 = UIView(width: self.view.frame.width, backgroundColor: .systemRed, staxDebugOptions: StaxDebugOptions())
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    VStack(
+        HStack(
+            view0,
+            view1,
+            view2,
+            Spacer()
+        ).scrolls(.horizontal)
+        .scroll(to: view1, axis: .horizontal, delay: 2)
+        .height(self.view.frame.width),
+        Spacer()
+    ).scrolls().layout(in: view)
+}
 ```
 
 We can set the scroll to a type. On an `HStack` we may use `.toLeft` and `.toRight`. On a `VStack` we may use `toTop` and `toBottom`.
 
 ```
-HStack(view5, view6)
-    .scrolls(.horizontal)
-    .scroll(.toLeft, delay: 3)
+// MARK: - Views
+
+lazy var view0 = UIView(square: self.view.frame.width, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
+lazy var view1 = UIView(width: self.view.frame.width, backgroundColor: .systemBlue, staxDebugOptions: StaxDebugOptions())
+lazy var view2 = UIView(width: self.view.frame.width, backgroundColor: .systemRed, staxDebugOptions: StaxDebugOptions())
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    VStack(
+        HStack(
+            view0,
+            view1,
+            view2,
+            Spacer()
+        ).scrolls(.horizontal)
+        .scroll(.toRigh, delay: 2)
+        .height(self.view.frame.width),
+        Spacer()
+    ).scrolls().layout(in: view)
+}
 ```
 
-This how we get rid of the scroll animation and jump straigth to where we want to.
+By setting `animated` to `false` we get rid of the scroll animation and jump straigth to where we want to.
 
 ```
-HStack(view5, view6)
-    .scrolls(.horizontal)
-    .scroll(.toLeft, delay: 3, animated: false)
+// MARK: - Views
+
+lazy var view0 = UIView(square: self.view.frame.width, backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
+lazy var view1 = UIView(width: self.view.frame.width, backgroundColor: .systemBlue, staxDebugOptions: StaxDebugOptions())
+lazy var view2 = UIView(width: self.view.frame.width, backgroundColor: .systemRed, staxDebugOptions: StaxDebugOptions())
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    VStack(
+        HStack(
+            view0,
+            view1,
+            view2,
+            Spacer()
+        ).scrolls(.horizontal)
+        .scroll(.toRigh, delay: 2, animated: false)
+        .height(self.view.frame.width),
+        Spacer()
+    ).scrolls().layout(in: view)
+}
 ```
 
 ### ⚙️ Stack Options
 
-Stacks are configure for easy layout and it is not advised to chage thes options only when you know what you're doing.
+Stacks are configured for easy layout and it is not advised to change thes options only when you know what you're doing.
 
 ```
-VStack(
-    ...
-)
-.axis(.vertical) // optionally set stack axis; default is: .vertical
-.alignment(.fill) // optionally set stack alignment; default is: .fill
-.distribution(.fill) // optionally set stack distribution; default is: .fill
+// MARK: - Views
+
+lazy var view0 = UIView(backgroundColor: .systemOrange, staxDebugOptions: StaxDebugOptions())
+lazy var view1 = UIView(backgroundColor: .systemBlue, staxDebugOptions: StaxDebugOptions())
+lazy var view2 = UIView(backgroundColor: .systemRed, staxDebugOptions: StaxDebugOptions())
+
+// MARK: - Layout views
+
+fileprivate func layoutViews() {
+    VStack(
+        HStack(
+            view0,
+            view1,
+            view2,
+            Spacer()
+        )
+        .axis(.horizontal) // optionally set stack axis; default is: .vertical
+        .alignment(.fill) // optionally set stack alignment; default is: .fill
+        .distribution(.fillEqually) // optionally set stack distribution; default is: .fill
+        .height(self.view.frame.width),
+        Spacer()
+    )
+    .scrolls().layout(in: view)
+}
 ```
+
+Note: 
+- none of the views have a prespecified size
+- the `Spacer()` is counted for the 4th view in the `HStack` and has exactly the same widht as the other views because `distribution` is set to `.fillEqually`
 
 ### 🤖 Access the main stack
 
