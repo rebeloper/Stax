@@ -33,8 +33,7 @@ Download and include the `Stax` folder and files in your codebase.
 - [X] No external dependencies.
 - [X] 100% Documented.
 
-## 🛠 How To Use
-### Before we begin
+## 🛠 Before we begin
 
 This UIViewController structure is assumed in the following examples
 
@@ -65,7 +64,7 @@ class ExampleViewController: UIViewController {
 
 In the examples below we will cover the code that is marked as **Views** and **Layout views**
 
-### 👉 Import
+## 👉 Import
 
 Import `Stax` into your `ViewController`
 
@@ -73,11 +72,11 @@ Import `Stax` into your `ViewController`
 import Stax
 ```
 
-### 📚 A word about how `UIStackViews` work and `size` setting with `Stax`
+## 📚 A word about how `UIStackViews` work and `size` setting with `Stax`
 
 `UIStackViews` are pull-in views: they take up the least amount of space from their parent view filling themselves with the least amount of space that their arranged subviews need. Thus it's crucial that all views added to the **Stack** have their own size. Some views do have an intrisic size (a size set automatically upon initialization): `UIButton`, `UILabel`. But not all views have an intrinsic size: `UIView`, `UIImageView`. So here are the ways we can set size in `Stax`
 
-### 📏 Size
+## 📏 Size
 
 ```
 let view0 = UIView(width: 100)
@@ -89,7 +88,7 @@ lazy var view4 = UIView(width: self.view.frame.size.width)
 
 Note: if we want to get acces to `self` when we create these views they must be `lazy var`.
 
-### 🎨 Background color
+## 🎨 Background color
 
 We may also add background color within the initialization of any `UIView`. Helpful when laying out views quickly. This way we see the frame of the views in an easy tweak. All types of previously listed initializations have this optional property. Default value is `.clear`.
 
@@ -105,7 +104,7 @@ let view0 = UIView(width: 100, staxDebugOptions: StaxDebugOptions())
 
 We will talk more in detail about `StaxDebugOptions` below when we will show them inside a stack.
 
-### 👈.....👉 Spacer
+## 👈.....👉 Spacer
 
 Since `UIStackView` is a pull-in view we will need a push-out view in order to use them more efficiently. This is where `Spacer` comes in. It is an empty `UIView` that can push views. Here's an example of a `Spacer` pushing `view2` to the top in this `VStack` layed out in the view controller's `view`. (Don't worry about understanding the stack or the layout. We'll talk about them soon enough.)
 
@@ -129,7 +128,7 @@ fileprivate func layoutViews() {
     <img src="Sources/ReadMeAssets/Stax00000_200x432.png" width="100px">
 </details>
 
-### 👈.👉 Divider
+## 👈.👉 Divider
 
 Dividers are much like `Spacer`s but they have a fixed `width` / `height`. By default this value is `16`. Dividers have two axis: `.vertical`, `.horizontal`. Default axis is `.vertical`. You may also want to use `VDivider` and `HDivider`. 
 Note: `Divider`s ususally do not have a background color. I'm just using `.systemOrange` here so we may see it on screen.
@@ -278,7 +277,7 @@ fileprivate func layoutViews() {
     <img src="Sources/ReadMeAssets/Stax00007_200x432.png" width="100px">
 </details>
 
-### 👇___ Line ( available iOS 13.0+ )
+## 👇___ Line ( available iOS 13.0+ )
 
 Adding a line in your UI is common. You may add a `Line` with a lot of properties, `VLine` for a vertical line, `HLine` for a horizontal line.
 
@@ -362,7 +361,7 @@ fileprivate func layoutViews() {
     <img src="Sources/ReadMeAssets/Stax00010_200x432.png" width="100px">
 </details>
 
-### 🐞 Debuging
+## 🐞 Debuging
 
 We may put a debug view on any of our views. You may initialize any `UIView` with the `staxDebugOptions` property.
 
@@ -463,7 +462,7 @@ fileprivate func layoutViews() {
     <img src="Sources/ReadMeAssets/Stax00015_200x432.png" width="100px">
 </details>
 
-### 🎨 Background color on views inside stacks, on stacks and on scroll views
+## 🎨 Background color on views inside stacks, on stacks and on scroll views
 
 When you build out views with `Stax` you may not properly evaluate where the stack's views are layed out exactly. To make our lives easier we can just simply add background colors. We can add a background color to: `UIView`, `UIStackView` and `UIScrollView`.
 
@@ -527,7 +526,7 @@ fileprivate func layoutViews() {
     <img src="Sources/ReadMeAssets/Stax00018_200x432.png" width="100px">
 </details>
 
-### 🍩 Centering 
+## 🍩 Centering 
 
 The second most important part in laying out UI in `Stax` besides stacking is **centering** a view inside a parent view. Centering has to be done outside of the main stack. See the example view controller below.
 
@@ -605,7 +604,7 @@ fileprivate func layoutViews() {
     <img src="Sources/ReadMeAssets/Stax00021_200x432.png" width="100px">
 </details>
 
-### 🍔 Stacks
+## 🍔 Stacks
 
 There are two types of Stacks in `Stax`: `VStack` and `HStack` (Vertical Stack and Horizontal Stack).
 The way we add a stack onto any view is laying it with `layout(in:)`. Usually this is done only once with the main Stack layed out in the view controller's view. You may also lay out with taking the safe area into acount.
@@ -734,7 +733,7 @@ fileprivate func layoutViews() {
     <img src="Sources/ReadMeAssets/Stax00026_200x432.png" width="100px">
 </details>
 
-### 📜 Scrolling
+## 📜 Scrolling
 
 You can enable scrolling with one line.
 
@@ -771,7 +770,7 @@ Notes:
 - We can remove the safe area property from `layout(in:)` because the navigation bar will push the main stack to the tab bar's bottom. When a Tab bar is also added it will also behave as the navigation bar pushin gthe stack to the top of the tab bar. Of course, you may leave the safe area property if that is needed for your specific layout. 
 - Notice the `Spacer()`s. This is left here because your layput may be viewed on displays with a `width`/`height` larger than the Stacks' `width`/`height`. In this case the `ScrollView` will act as a `StackView`.
 
-### 👉👈 Spacing
+## 👉👈 Spacing
 
 Spacing between the stack elements is also simple. Default value is `8`.
 
@@ -829,7 +828,7 @@ fileprivate func layoutViews() {
     <img src="Sources/ReadMeAssets/Stax00029_200x432.png" width="100px">
 </details>
 
-### 🌅 Padding
+## 🌅 Padding
 
 Padding can be added to both `Stack` and `ScrollView`. Default value is `8`.
 
@@ -938,7 +937,7 @@ fileprivate func layoutViews() {
     <img src="Sources/ReadMeAssets/Stax00034_200x432.png" width="100px">
 </details>
 
-### ⚙️ Scrolling Options
+## ⚙️ Scrolling Options
 
 We can set basic options on the `ScrollView`:
 
@@ -974,7 +973,7 @@ fileprivate func layoutViews() {
     <img src="Sources/ReadMeAssets/Stax00035_200x432.png" width="100px">
 </details>
 
-### 🦾 Auto-scrolling
+## 🦾 Auto-scrolling
 
 We can also automatically scroll to a specific view. You might want to delay the scroll by `0.05` when you are scrolling upon initializing the view controller. Default `delay` is `0`. Default `animated` is `true`. You must specifiy the `axis` of the scroll. You may also set an optional offset too.
 
@@ -1069,7 +1068,7 @@ fileprivate func layoutViews() {
     <img src="Sources/ReadMeAssets/Stax00038_200x432.png" width="100px">
 </details>
 
-### ⚙️ Stack Options
+## ⚙️ Stack Options
 
 Stacks are configured for easy layout and it is not advised to change thes options only when you know what you're doing.
 
@@ -1109,7 +1108,7 @@ Note:
 - none of the views have a prespecified size
 - the `Spacer()` is counted for the 4th view in the `HStack` and has exactly the same widht as the other views because `distribution` is set to `.fillEqually`
 
-### 🤖 Access the main stack
+## 🤖 Access the main stack
 
 You might want to access the main stack later on in the lifecycle of the app. Till now we added our main stack in the `viewDidLoad()` but you may also declare it as a `lazy var`. So now you can acces it in the whoe view controller.
 
@@ -1142,7 +1141,7 @@ fileprivate func layoutViews() {
 
 Note: the `layout(in:)` has to be called in the `layoutViews()` 
 
-### 👁 Show / Hide Views
+## 👁 Show / Hide Views
 
 We may show/hide views with an optional delay and animation. The default `delay` is `0`. Default animation is set to `true`. Can be set to any view that inherits from `UIView`.
 
@@ -1178,7 +1177,7 @@ fileprivate func layoutViews() {
     <img src="Sources/ReadMeAssets/Stax00041_200x432.png" width="100px">
 </details>
 
-### 🧪 Change size of a stacked view
+## 🧪 Change size of a stacked view
 
 You may change a view size after the stack has been set. You may animate this change by adding the root view to the `animatedInRootView` property.
 
@@ -1214,7 +1213,7 @@ fileprivate func layoutViews() {
     <img src="Sources/ReadMeAssets/Stax00042_200x432.png" width="100px">
 </details>
 
-### 📱 Example
+## 📱 Example
 
 Here is an in depth example view controller detailing all of the features of `Stax`
 
