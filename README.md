@@ -126,7 +126,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00000_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00000_200x432.png" width="100px">
 </details>
 
 ### 👈.👉 Divider
@@ -149,7 +149,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00002_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00002_200x432.png" width="100px">
 </details>
 
 ```
@@ -167,7 +167,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00003_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00003_200x432.png" width="100px">
 </details>
 
 ```
@@ -185,7 +185,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00004_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00004_200x432.png" width="100px">
 </details>
 
 ```
@@ -203,7 +203,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00005_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00005_200x432.png" width="100px">
 </details>
 
 ```
@@ -221,7 +221,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00006_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00006_200x432.png" width="100px">
 </details>
 
 ```
@@ -239,7 +239,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00007_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00007_200x432.png" width="100px">
 </details>
 
 ```
@@ -257,7 +257,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00006_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00006_200x432.png" width="100px">
 </details>
 
 ```
@@ -275,7 +275,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00007_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00007_200x432.png" width="100px">
 </details>
 
 ### 👇___ Line ( available iOS 13.0+ )
@@ -299,7 +299,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00008_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00008_200x432.png" width="100px">
 </details>
 
 ```
@@ -319,7 +319,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00001_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00001_200x432.png" width="100px">
 </details>
 
 ```
@@ -339,7 +339,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00009_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00009_200x432.png" width="100px">
 </details>
 
 ```
@@ -359,7 +359,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00010_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00010_200x432.png" width="100px">
 </details>
 
 ### 🐞 Debuging
@@ -383,7 +383,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00011_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00011_200x432.png" width="100px">
 </details>
 
 When you do not want to initialize with `staxDebugOptions` you may debug the view inside the stack.
@@ -405,7 +405,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00012_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00012_200x432.png" width="100px">
 </details>
 
 You may create your own custom debug options.
@@ -430,7 +430,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00013_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00013_200x432.png" width="100px">
 </details>
 
 Or use one of the preset ones. Default is `adaptive`. See the diferent `type`s ont both light and dark appearance below.
@@ -455,12 +455,12 @@ fileprivate func layoutViews() {
 ```
 <details>
     <summary>Screenshot Light</summary>
-    <img src="Sources/ReadMeAssets/Stax00014_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00014_200x432.png" width="100px">
 </details>
 
 <details>
     <summary>Screenshot Dark</summary>
-    <img src="Sources/ReadMeAssets/Stax00015_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00015_200x432.png" width="100px">
 </details>
 
 ### 🎨 Background color on views inside stacks, on stacks and on scroll views
@@ -484,7 +484,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00016_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00016_200x432.png" width="100px">
 </details>
 
 ```
@@ -504,7 +504,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00017_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00017_200x432.png" width="100px">
 </details>
 
 ```
@@ -524,7 +524,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00018_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00018_200x432.png" width="100px">
 </details>
 
 ### 🍩 Centering 
@@ -552,7 +552,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00019_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00019_200x432.png" width="100px">
 </details>
 
 ```
@@ -577,7 +577,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00020_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00020_200x432.png" width="100px">
 </details>
 
 ```
@@ -602,7 +602,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00021_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00021_200x432.png" width="100px">
 </details>
 
 ### 🍔 Stacks
@@ -630,7 +630,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00022_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00022_200x432.png" width="100px">
 </details>
 
 ```
@@ -653,7 +653,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00023_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00023_200x432.png" width="100px">
 </details>
 
 ```
@@ -676,7 +676,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00024_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00024_200x432.png" width="100px">
 </details>
 
 ```
@@ -699,7 +699,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00025_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00025_200x432.png" width="100px">
 </details>
 
 Note: The `Spacer` is pushing the two views out to the sides of the container view.
@@ -731,7 +731,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00026_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00026_200x432.png" width="100px">
 </details>
 
 ### 📜 Scrolling
@@ -763,7 +763,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00027_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00027_200x432.png" width="100px">
 </details>
 
 Notes: 
@@ -799,7 +799,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00028_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00028_200x432.png" width="100px">
 </details>
 
 ```
@@ -826,7 +826,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00029_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00029_200x432.png" width="100px">
 </details>
 
 ### 🌅 Padding
@@ -851,7 +851,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00030_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00030_200x432.png" width="100px">
 </details>
 
 ```
@@ -872,7 +872,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00031_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00031_200x432.png" width="100px">
 </details>
 
 ```
@@ -893,7 +893,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00032_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00032_200x432.png" width="100px">
 </details>
 
 ```
@@ -914,7 +914,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00033_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00033_200x432.png" width="100px">
 </details>
 
 ```
@@ -935,7 +935,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00034_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00034_200x432.png" width="100px">
 </details>
 
 ### ⚙️ Scrolling Options
@@ -971,7 +971,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00035_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00035_200x432.png" width="100px">
 </details>
 
 ### 🦾 Auto-scrolling
@@ -1004,7 +1004,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00036_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00036_200x432.png" width="100px">
 </details>
 
 We can set the scroll to a type. On an `HStack` we may use `.toLeft` and `.toRight`. On a `VStack` we may use `toTop` and `toBottom`.
@@ -1035,7 +1035,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00037_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00037_200x432.png" width="100px">
 </details>
 
 By setting `animated` to `false` we get rid of the scroll animation and jump straigth to where we want to.
@@ -1066,7 +1066,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00038_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00038_200x432.png" width="100px">
 </details>
 
 ### ⚙️ Stack Options
@@ -1102,7 +1102,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00039_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00039_200x432.png" width="100px">
 </details>
 
 Note: 
@@ -1137,7 +1137,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00040_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00040_200x432.png" width="100px">
 </details>
 
 Note: the `layout(in:)` has to be called in the `layoutViews()` 
@@ -1175,7 +1175,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00041_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00041_200x432.png" width="100px">
 </details>
 
 ### 🧪 Change size of a stacked view
@@ -1211,7 +1211,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00042_200x432.png" width="160px">
+    <img src="Sources/ReadMeAssets/Stax00042_200x432.png" width="100px">
 </details>
 
 ### 📱 Example
