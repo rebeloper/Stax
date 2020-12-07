@@ -1,13 +1,3 @@
-<html>
-<head>
-<style>
-img {
-  border: 1px solid #555;
-}
-</style>
-</head>
-</html>
-
 # 🥞 Stax
 
 **Stax** is a lightweight library that leverages Auto Layout, UIStackViews and UIScrollViews to build out your UI programmatically with just a few lines of code.
@@ -107,11 +97,6 @@ We may also add background color within the initialization of any `UIView`. Help
 let view0 = UIView(width: 100, backgroundColor: .systemBlue)
 ```
 
-<details>
-    <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00000_200x432.png" width="200px">
-</details>
-
 Adding a background color to or view to debug our layout is common practice, but `Stax` has something more powerfull: `StaxDebugOptions`. When added as a property to a `UIView` you will see a debug layer on top of your view. Default value is `nil` which will not add any debug layer. `StaxDebugOptions` is available on iOS13+.
 
 ```
@@ -139,6 +124,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00000_200x432.png" width="200px">
+</details>
+
 ### 👈.👉 Divider
 
 Dividers are much like `Spacer`s but they have a fixed `width` / `height`. By default this value is `16`. Dividers have two axis: `.vertical`, `.horizontal`. Default axis is `.vertical`. You may also want to use `VDivider` and `HDivider`. 
@@ -157,6 +147,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00002_200x432.png" width="200px">
+</details>
+
 ```
 // MARK: - Views
 
@@ -169,6 +164,11 @@ fileprivate func layoutViews() {
     ).layout(in: view, withSafeArea: true)
 }
 ```
+
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00003_200x432.png" width="200px">
+</details>
 
 ```
 // MARK: - Views
@@ -183,6 +183,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00004_200x432.png" width="200px">
+</details>
+
 ```
 // MARK: - Views
 
@@ -195,6 +200,11 @@ fileprivate func layoutViews() {
     ).layout(in: view, withSafeArea: true)
 }
 ```
+
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00005_200x432.png" width="200px">
+</details>
 
 ```
 // MARK: - Views
@@ -209,6 +219,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00006_200x432.png" width="200px">
+</details>
+
 ```
 // MARK: - Views
 
@@ -221,6 +236,11 @@ fileprivate func layoutViews() {
     ).layout(in: view, withSafeArea: true)
 }
 ```
+
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00007_200x432.png" width="200px">
+</details>
 
 ```
 // MARK: - Views
@@ -235,6 +255,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00006_200x432.png" width="200px">
+</details>
+
 ```
 // MARK: - Views
 
@@ -247,6 +272,11 @@ fileprivate func layoutViews() {
     ).layout(in: view, withSafeArea: true)
 }
 ```
+
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00007_200x432.png" width="200px">
+</details>
 
 ### 👇___ Line ( available iOS 13.0+ )
 
