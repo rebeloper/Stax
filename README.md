@@ -6,6 +6,7 @@ img {
 }
 </style>
 </head>
+</html>
 
 # 🥞 Stax
 
