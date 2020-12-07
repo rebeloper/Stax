@@ -123,7 +123,7 @@ fileprivate func layoutViews() {
 }
 ```
 
-![](../media/ReadMeAssets/Stax00000_200x432.png?raw=true)
+![](../media/Sources/ReadMeAssets/Stax00000_200x432.png?raw=true)
 
 <details>
     <summary>Screenshot</summary>
