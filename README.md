@@ -124,7 +124,7 @@ fileprivate func layoutViews() {
 ```
 
 <details>
-    ![Screenshot](https://github.com/rebeloper/Stax/blob/media/Sources/ReadMeAssets/Stax00000.png?raw=true)
+    ![Screenshot](https://raw.githubusercontent.com/rebeloper/Stax/media/Sources/ReadMeAssets/Stax00000.png)
 </details>
 
 ## 👈.👉 Divider
