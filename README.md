@@ -297,6 +297,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00008_200x432.png" width="200px">
+</details>
+
 ```
 // MARK: - Views
 
@@ -311,6 +316,11 @@ fileprivate func layoutViews() {
     ).layout(in: view, withSafeArea: true)
 }
 ```
+
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00001_200x432.png" width="200px">
+</details>
 
 ```
 // MARK: - Views
@@ -327,6 +337,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00009_200x432.png" width="200px">
+</details>
+
 ```
 // MARK: - Views
 
@@ -341,6 +356,11 @@ fileprivate func layoutViews() {
     ).layout(in: view, withSafeArea: true)
 }
 ```
+
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00010_200x432.png" width="200px">
+</details>
 
 ### 🐞 Debuging
 
@@ -361,6 +381,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00011_200x432.png" width="200px">
+</details>
+
 When you do not want to initialize with `staxDebugOptions` you may debug the view inside the stack.
 
 ```
@@ -377,6 +402,11 @@ fileprivate func layoutViews() {
     ).layout(in: view, withSafeArea: true)
 }
 ```
+
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00012_200x432.png" width="200px">
+</details>
 
 You may create your own custom debug options.
 
@@ -398,6 +428,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00013_200x432.png" width="200px">
+</details>
+
 Or use one of the preset ones. Default is `adaptive`. See the diferent `type`s ont both light and dark appearance below.
 
 ```
@@ -418,6 +453,15 @@ fileprivate func layoutViews() {
     ).layout(in: view, withSafeArea: true)
 }
 ```
+<details>
+    <summary>Screenshot Light</summary>
+    <img src="Sources/ReadMeAssets/Stax00014_200x432.png" width="200px">
+</details>
+
+<details>
+    <summary>Screenshot Dark</summary>
+    <img src="Sources/ReadMeAssets/Stax00015_200x432.png" width="200px">
+</details>
 
 ### 🎨 Background color on views inside stacks, on stacks and on scroll views
 
@@ -438,6 +482,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00016_200x432.png" width="200px">
+</details>
+
 ```
 // MARK: - Views
 
@@ -453,6 +502,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00017_200x432.png" width="200px">
+</details>
+
 ```
 // MARK: - Views
 
@@ -467,6 +521,11 @@ fileprivate func layoutViews() {
     ).scrolls().background(.systemGreen).layout(in: view, withSafeArea: true)
 }
 ```
+
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00018_200x432.png" width="200px">
+</details>
 
 ### 🍩 Centering 
 
@@ -491,6 +550,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00019_200x432.png" width="200px">
+</details>
+
 ```
 // MARK: - Views
 
@@ -511,6 +575,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00020_200x432.png" width="200px">
+</details>
+
 ```
 // MARK: - Views
 
@@ -530,6 +599,11 @@ fileprivate func layoutViews() {
     ).layout(in: view, withSafeArea: true)
 }
 ```
+
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00021_200x432.png" width="200px">
+</details>
 
 ### 🍔 Stacks
 
@@ -554,6 +628,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00022_200x432.png" width="200px">
+</details>
+
 ```
 // MARK: - Views
 
@@ -571,6 +650,11 @@ fileprivate func layoutViews() {
     ).layout(in: view, withSafeArea: true)
 }
 ```
+
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00023_200x432.png" width="200px">
+</details>
 
 ```
 // MARK: - Views
@@ -590,6 +674,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00024_200x432.png" width="200px">
+</details>
+
 ```
 // MARK: - Views
 
@@ -607,6 +696,11 @@ fileprivate func layoutViews() {
     ).layout(in: view, withSafeArea: true)
 }
 ```
+
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00025_200x432.png" width="200px">
+</details>
 
 Note: The `Spacer` is pushing the two views out to the sides of the container view.
 
@@ -635,6 +729,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00026_200x432.png" width="200px">
+</details>
+
 ### 📜 Scrolling
 
 You can enable scrolling with one line.
@@ -661,6 +760,11 @@ fileprivate func layoutViews() {
     ).scrolls().layout(in: view)
 }
 ```
+
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00027_200x432.png" width="200px">
+</details>
 
 Notes: 
 - The defalyt value is `.vertical`. 
@@ -693,6 +797,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00028_200x432.png" width="200px">
+</details>
+
 ```
 // MARK: - Views
 
@@ -715,6 +824,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00029_200x432.png" width="200px">
+</details>
+
 ### 🌅 Padding
 
 Padding can be added to both `Stack` and `ScrollView`. Default value is `8`.
@@ -735,6 +849,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00030_200x432.png" width="200px">
+</details>
+
 ```
 // MARK: - Views
 
@@ -750,6 +869,11 @@ fileprivate func layoutViews() {
     )/*.scrolls()*/.padding(by: 36).layout(in: view)
 }
 ```
+
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00031_200x432.png" width="200px">
+</details>
 
 ```
 // MARK: - Views
@@ -767,6 +891,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00032_200x432.png" width="200px">
+</details>
+
 ```
 // MARK: - Views
 
@@ -783,6 +912,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00033_200x432.png" width="200px">
+</details>
+
 ```
 // MARK: - Views
 
@@ -798,6 +932,11 @@ fileprivate func layoutViews() {
     )/*.scrolls()*/.padding(.top, 36).layout(in: view)
 }
 ```
+
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00034_200x432.png" width="200px">
+</details>
 
 ### ⚙️ Scrolling Options
 
@@ -830,6 +969,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00035_200x432.png" width="200px">
+</details>
+
 ### 🦾 Auto-scrolling
 
 We can also automatically scroll to a specific view. You might want to delay the scroll by `0.05` when you are scrolling upon initializing the view controller. Default `delay` is `0`. Default `animated` is `true`. You must specifiy the `axis` of the scroll. You may also set an optional offset too.
@@ -858,6 +1002,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00036_200x432.png" width="200px">
+</details>
+
 We can set the scroll to a type. On an `HStack` we may use `.toLeft` and `.toRight`. On a `VStack` we may use `toTop` and `toBottom`.
 
 ```
@@ -884,6 +1033,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00037_200x432.png" width="200px">
+</details>
+
 By setting `animated` to `false` we get rid of the scroll animation and jump straigth to where we want to.
 
 ```
@@ -909,6 +1063,11 @@ fileprivate func layoutViews() {
     ).scrolls().layout(in: view)
 }
 ```
+
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00038_200x432.png" width="200px">
+</details>
 
 ### ⚙️ Stack Options
 
@@ -941,6 +1100,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00039_200x432.png" width="200px">
+</details>
+
 Note: 
 - none of the views have a prespecified size
 - the `Spacer()` is counted for the 4th view in the `HStack` and has exactly the same widht as the other views because `distribution` is set to `.fillEqually`
@@ -970,6 +1134,11 @@ fileprivate func layoutViews() {
     ui.layout(in: view).scroll(to: view1, axis: .vertical, offset: 50, delay: 2, animated: true)
 }
 ```
+
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00040_200x432.png" width="200px">
+</details>
 
 Note: the `layout(in:)` has to be called in the `layoutViews()` 
 
@@ -1004,6 +1173,11 @@ fileprivate func layoutViews() {
 }
 ```
 
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00041_200x432.png" width="200px">
+</details>
+
 ### 🧪 Change size of a stacked view
 
 You may change a view size after the stack has been set. You may animate this change by adding the root view to the `animatedInRootView` property.
@@ -1034,6 +1208,11 @@ fileprivate func layoutViews() {
     
 }
 ```
+
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00042_200x432.png" width="200px">
+</details>
 
 ### 📱 Example
 
