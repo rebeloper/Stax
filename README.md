@@ -676,7 +676,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00024_200x432.png" width="100px">
+    <img src="Sources/ReadMeAssets/Stax00024_432x199.png" height="100px">
 </details>
 
 ```
@@ -699,7 +699,7 @@ fileprivate func layoutViews() {
 
 <details>
     <summary>Screenshot</summary>
-    <img src="Sources/ReadMeAssets/Stax00025_200x432.png" width="100px">
+    <img src="Sources/ReadMeAssets/Stax00024_432x199.png" height="100px">
 </details>
 
 Note: The `Spacer` is pushing the two views out to the sides of the container view.
