@@ -21,9 +21,8 @@ let package = Package(
         .target(
             name: "Stax",
             dependencies: [],
-            exclude: [
-                "ReadMeAssets"
-            ]),
+            exclude: ["ReadMeAssets"]
+            ),
         .testTarget(
             name: "StaxTests",
             dependencies: ["Stax"]),
