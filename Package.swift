@@ -20,8 +20,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "Stax",
-            dependencies: [],
-            exclude: ["ReadMeAssets"]
+            dependencies: []
             ),
         .testTarget(
             name: "StaxTests",
