@@ -97,7 +97,10 @@ We may also add background color within the initialization of any `UIView`. Help
 let view0 = UIView(width: 100, backgroundColor: .systemBlue)
 ```
 
-<img src="Sources/ReadMeAssets/Stax00000_200x432.png" width="150px">
+<details>
+    <summary>Screenshot</summary>
+    <img src="Sources/ReadMeAssets/Stax00000_200x432.png" width="200px">
+</details>
 
 Adding a background color to or view to debug our layout is common practice, but `Stax` has something more powerfull: `StaxDebugOptions`. When added as a property to a `UIView` you will see a debug layer on top of your view. Default value is `nil` which will not add any debug layer. `StaxDebugOptions` is available on iOS13+.
 
