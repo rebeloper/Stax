@@ -124,7 +124,7 @@ fileprivate func layoutViews() {
 ```
 
 <details>
-    ![Screenshot](../media/Sources/ReadMeAssets/Stax00000.png?raw=true)
+    ![Screenshot](../media/Sources/ReadMeAssets/Stax00000.png)
 </details>
 
 ## 👈.👉 Divider
