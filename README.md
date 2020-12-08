@@ -124,6 +124,12 @@ fileprivate func layoutViews() {
 ```
 
 <details>
+    <summary>Screenshot</summary>
+    <img src="../media/Sources/ReadMeAssets/Stax00000.png" width="250px">
+</details>
+
+<details>
+
     ![Screenshot](https://raw.githubusercontent.com/rebeloper/Stax/media/Sources/ReadMeAssets/Stax00000.png)
 </details>
 
