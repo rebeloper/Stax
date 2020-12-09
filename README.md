@@ -12,7 +12,7 @@ https://github.com/rebeloper/Stax.git
 Download and include the `Stax` folder and files in your codebase.
 
 ### 📲 Requirements
-- iOS 11 (some optional features iOS13+)
+- iOS 11+ (some optional features iOS13+)
 - Swift 5
 
 ## 👑 Concept
