@@ -1303,10 +1303,10 @@ class ViewController: UIViewController {
 
 ## ✍️ Contact
 
-<a href="http://rebeloper.com/">rebeloper.com</a> / 
-<a href="http://www.youtube.com/rebeloper/">YouTube</a> / 
-<a href="http://store.rebeloper.com/">Shop</a> / 
-<a href="http://rebeloper.com/mentoring">Mentoring</a>
+<a href="https://rebeloper.com/">rebeloper.com</a> / 
+<a href="https://www.youtube.com/rebeloper/">YouTube</a> / 
+<a href="https://store.rebeloper.com/">Shop</a> / 
+<a href="https://rebeloper.com/mentoring">Mentoring</a>
 
 ## 📃 License
 
